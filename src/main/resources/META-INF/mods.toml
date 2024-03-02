@@ -8,11 +8,11 @@ license="MIT"
 
 [[mods]]
 
-modId="simplier_hammers"
+modId="simpliest_hammers"
 
 version="1.0.0"
 
-displayName="Simplier Hammers"
+displayName="Simpliest Hammers"
 
 authors="IndEvo Studio" #optional
 
@@ -20,7 +20,7 @@ authors="IndEvo Studio" #optional
 
 description='''A light mod adding vanilla hammers breaking in area 3x3.'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.simplier_hammers]] #optional
+[[dependencies.simpliest_hammers]] #optional
 # the modid of the dependency
 modId="forge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
@@ -34,7 +34,7 @@ ordering="NONE"
 # Side this dependency is applied on - BOTH, CLIENT, or SERVER
 side="BOTH"
 # Here's another dependency
-[[dependencies.simplier_hammers]]
+[[dependencies.simpliest_hammers]]
 modId="minecraft"
 mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version

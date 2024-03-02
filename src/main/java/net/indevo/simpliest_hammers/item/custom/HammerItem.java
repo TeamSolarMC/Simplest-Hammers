@@ -1,4 +1,4 @@
-package net.indevo.simplier_hammers.item.custom;
+package net.indevo.simpliest_hammers.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

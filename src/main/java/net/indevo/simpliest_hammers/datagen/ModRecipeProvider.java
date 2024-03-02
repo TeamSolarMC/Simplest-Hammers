@@ -1,6 +1,6 @@
-package net.indevo.simplier_hammers.datagen;
+package net.indevo.simpliest_hammers.datagen;
 
-import net.indevo.simplier_hammers.item.ModItems;
+import net.indevo.simpliest_hammers.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;

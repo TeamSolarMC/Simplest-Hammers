@@ -1,0 +1,11 @@
+{
+  "item.simpliest_hammers.wood_hammer": "Деревянный молот",
+  "item.simpliest_hammers.stone_hammer": "Каменный молот",
+  "item.simpliest_hammers.iron_hammer": "Железный молот",
+  "item.simpliest_hammers.gold_hammer": "Золотой молот",
+  "item.simpliest_hammers.diamond_hammer": "Алмазный молот",
+  "item.simpliest_hammers.netherite_hammer": "Незеритовый молот",
+
+
+  "creativetab.simpliest_hammers_tab": "Simpliest Hammers"
+}

@@ -1,6 +1,6 @@
-package net.indevo.simplier_hammers.datagen;
+package net.indevo.simpliest_hammers.datagen;
 
-import net.indevo.simplier_hammers.SimplierHammers;
+import net.indevo.simpliest_hammers.SimpliestHammers;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(modid = SimplierHammers.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = SimpliestHammers.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
