@@ -1,6 +1,8 @@
 package net.indevo.simple_hammers.datagen;
 
 import net.indevo.simple_hammers.SimpleHammers;
+import net.indevo.simple_hammers.item.ModItems;
+import net.indevo.simple_hammers.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -18,6 +20,14 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+        this.tag(ModTags.Items.HAMMERS)
+                .add(
+                        ModItems.WOOD_HAMMER.get(),
+                        ModItems.STONE_HAMMER.get(),
+                        ModItems.GOLD_HAMMER.get(),
+                        ModItems.IRON_HAMMER.get(),
+                        ModItems.DIAMOND_HAMMER.get(),
+                        ModItems.NETHERITE_HAMMER.get());
     }
 
     @Override

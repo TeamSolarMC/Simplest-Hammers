@@ -1,1 +1,7 @@
-// 1.20.1	2024-02-28T22:24:10.0017651	Item Models: simple_hammers
+// 1.20.1	2024-03-03T00:31:56.9772839	Item Models: simple_hammers
+39208b38695d732c19ab061a74d3e385a7f38ab8 assets/simple_hammers/models/item/diamond_hammer.json
+e2a7e4ec5c0a969122d8858ac82974e8ba6ec560 assets/simple_hammers/models/item/gold_hammer.json
+50f673ff8b10ef117f45368b1c34a66ea57fcd35 assets/simple_hammers/models/item/iron_hammer.json
+42c019ec40b74c1e5118466d63b41a5726fab417 assets/simple_hammers/models/item/netherite_hammer.json
+c69b9db9cef60f14d0e98d00e6c83f17a28e9655 assets/simple_hammers/models/item/stone_hammer.json
+bf7195601ada280905f4fe1ca05002aeceeb145e assets/simple_hammers/models/item/wood_hammer.json

@@ -1,6 +1,7 @@
 package net.indevo.simple_hammers.datagen;
 
 import net.indevo.simple_hammers.SimpleHammers;
+import net.indevo.simple_hammers.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -19,12 +20,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-//        simpleItem(ModItems.WOOD_HAMMER);
-//        simpleItem(ModItems.STONE_HAMMER);
-//        simpleItem(ModItems.IRON_HAMMER);
-//        simpleItem(ModItems.GOLD_HAMMER);
-//        simpleItem(ModItems.DIAMOND_COIN);
-//        simpleItem(ModItems.NETHERITE_COIN); //TODO TEXTURES
+        handheldItem(ModItems.WOOD_HAMMER);
+        handheldItem(ModItems.STONE_HAMMER);
+        handheldItem(ModItems.IRON_HAMMER);
+        handheldItem(ModItems.GOLD_HAMMER);
+        handheldItem(ModItems.DIAMOND_HAMMER);
+        handheldItem(ModItems.NETHERITE_HAMMER);
     }
 
     private ItemModelBuilder complexBlock(Block block) {
@@ -36,12 +37,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(SimpleHammers.MOD_ID,"block/" + item.getId().getPath()));
-    }
-
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(SimpleHammers.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     public void evenSimplerBlockItem(RegistryObject<Block> block) {

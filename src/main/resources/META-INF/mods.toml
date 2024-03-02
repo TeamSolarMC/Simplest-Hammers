@@ -18,7 +18,7 @@ authors="IndEvo Studio" #optional
 
 
 
-description='''${mod_description}'''
+description='''A light mod adding vanilla hammers breaking in area 3x3.'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.simple_hammers]] #optional
 # the modid of the dependency
