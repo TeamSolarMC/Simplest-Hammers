@@ -1,6 +1,6 @@
-package net.indevo.simple_hammers.util;
+package net.indevo.simplier_hammers.util;
 
-import net.indevo.simple_hammers.SimpleHammers;
+import net.indevo.simplier_hammers.SimplierHammers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -19,7 +19,7 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_NETHERITE_TOOL = tag("needs_netherite_tool");
 
         private static TagKey<Block> tag(String name) {
-            return BlockTags.create(new ResourceLocation(SimpleHammers.MOD_ID, name));
+            return BlockTags.create(new ResourceLocation(SimplierHammers.MOD_ID, name));
         }
         private static TagKey<Block> forgeTag(String name) {
             return BlockTags.create(new ResourceLocation("forge", name));
@@ -30,7 +30,7 @@ public class ModTags {
         public static final TagKey<Item> HAMMERS = forgeTag("hammers");
 
         private static TagKey<Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(SimpleHammers.MOD_ID, name));
+            return ItemTags.create(new ResourceLocation(SimplierHammers.MOD_ID, name));
         }
         private static TagKey<Item> forgeTag(String name) {
             return ItemTags.create(new ResourceLocation("forge", name));

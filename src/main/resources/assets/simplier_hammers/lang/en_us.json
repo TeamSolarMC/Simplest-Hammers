@@ -1,0 +1,11 @@
+{
+  "item.simplier_hammers.wood_hammer": "Wood Hammer",
+  "item.simplier_hammers.stone_hammer": "Stone Hammer",
+  "item.simplier_hammers.iron_hammer": "Iron Hammer",
+  "item.simplier_hammers.gold_hammer": "Gold Hammer",
+  "item.simplier_hammers.diamond_hammer": "Diamond Hammer",
+  "item.simplier_hammers.netherite_hammer": "Netherite Hammer",
+
+
+  "creativetab.simplier_hammers_tab": "Simplier Hammers"
+}

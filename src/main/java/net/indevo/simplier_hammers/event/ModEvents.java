@@ -1,7 +1,7 @@
-package net.indevo.simple_hammers.event;
+package net.indevo.simplier_hammers.event;
 
-import net.indevo.simple_hammers.SimpleHammers;
-import net.indevo.simple_hammers.item.custom.HammerItem;
+import net.indevo.simplier_hammers.SimplierHammers;
+import net.indevo.simplier_hammers.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.HashSet;
 import java.util.Set;
 
-@Mod.EventBusSubscriber(modid = SimpleHammers.MOD_ID)
+@Mod.EventBusSubscriber(modid = SimplierHammers.MOD_ID)
 public class ModEvents {
 
     // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java

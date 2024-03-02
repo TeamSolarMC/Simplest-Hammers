@@ -1,7 +1,7 @@
-package net.indevo.simple_hammers.item;
+package net.indevo.simplier_hammers.item;
 
-import net.indevo.simple_hammers.SimpleHammers;
-import net.indevo.simple_hammers.item.custom.HammerItem;
+import net.indevo.simplier_hammers.SimplierHammers;
+import net.indevo.simplier_hammers.item.custom.HammerItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, SimpleHammers.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, SimplierHammers.MOD_ID);
 
     public static final RegistryObject<Item> WOOD_HAMMER = ITEMS.register("wood_hammer",
             () -> new HammerItem(ModToolTiers.WOOD, 1, -2.8F, new Item.Properties().durability(88)));
