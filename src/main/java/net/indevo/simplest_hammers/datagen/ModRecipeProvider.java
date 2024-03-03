@@ -1,6 +1,6 @@
-package net.indevo.simpliest_hammers.datagen;
+package net.indevo.simplest_hammers.datagen;
 
-import net.indevo.simpliest_hammers.item.ModItems;
+import net.indevo.simplest_hammers.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -67,20 +67,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(Items.STICK).build()))
                 .save(p_251297_);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get())
-                .pattern("ABA")
-                .pattern("ACA")
-                .pattern(" C ")
-                .define('A', Items.NETHERITE_INGOT)
-                .define('B', Items.NETHERITE_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_netherite_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.NETHERITE_INGOT).build()))
-                .unlockedBy("has_netherite_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.NETHERITE_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
+        netheriteSmithing(p_251297_, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_HAMMER.get())
                 .pattern("AAA")

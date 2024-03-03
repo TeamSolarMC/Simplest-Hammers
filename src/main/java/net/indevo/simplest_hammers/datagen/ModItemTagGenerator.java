@@ -1,8 +1,8 @@
-package net.indevo.simpliest_hammers.datagen;
+package net.indevo.simplest_hammers.datagen;
 
-import net.indevo.simpliest_hammers.SimpliestHammers;
-import net.indevo.simpliest_hammers.item.ModItems;
-import net.indevo.simpliest_hammers.util.ModTags;
+import net.indevo.simplest_hammers.SimplestHammers;
+import net.indevo.simplest_hammers.item.ModItems;
+import net.indevo.simplest_hammers.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 public class ModItemTagGenerator extends ItemTagsProvider {
     public ModItemTagGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> future,
                                CompletableFuture<TagLookup<Block>> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-        super(packOutput, future, completableFuture, SimpliestHammers.MOD_ID, existingFileHelper);
+        super(packOutput, future, completableFuture, SimplestHammers.MOD_ID, existingFileHelper);
     }
 
     @Override

@@ -1,8 +1,8 @@
-package net.indevo.simpliest_hammers;
+package net.indevo.simplest_hammers;
 
 import com.mojang.logging.LogUtils;
-import net.indevo.simpliest_hammers.item.ModCreativeModTabs;
-import net.indevo.simpliest_hammers.item.ModItems;
+import net.indevo.simplest_hammers.item.ModCreativeModTabs;
+import net.indevo.simplest_hammers.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -15,13 +15,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(SimpliestHammers.MOD_ID)
-public class SimpliestHammers
+@Mod(SimplestHammers.MOD_ID)
+public class SimplestHammers
 {
-    public static final String MOD_ID = "simpliest_hammers";
+    public static final String MOD_ID = "simplest_hammers";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public SimpliestHammers() {
+    public SimplestHammers() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModCreativeModTabs.register(modEventBus);

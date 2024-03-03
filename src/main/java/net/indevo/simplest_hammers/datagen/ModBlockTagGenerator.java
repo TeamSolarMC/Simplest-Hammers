@@ -1,6 +1,6 @@
-package net.indevo.simpliest_hammers.datagen;
+package net.indevo.simplest_hammers.datagen;
 
-import net.indevo.simpliest_hammers.SimpliestHammers;
+import net.indevo.simplest_hammers.SimplestHammers;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 public class ModBlockTagGenerator extends BlockTagsProvider {
     public ModBlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
                                 @Nullable ExistingFileHelper existingFileHelper ){
-        super(output, lookupProvider, SimpliestHammers.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, SimplestHammers.MOD_ID, existingFileHelper);
     }
 
     @Override
