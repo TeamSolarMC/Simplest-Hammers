@@ -69,18 +69,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         netheriteSmithing(p_251297_, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_HAMMER.get())
-                .pattern("AAA")
-                .pattern("ACA")
-                .pattern(" C ")
-                .define('A', Items.COBBLESTONE)
-                .define('C', Items.STICK)
-                .unlockedBy("has_cobblestone", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.COBBLESTONE).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOOD_HAMMER.get())
                 .pattern("ABA")
                 .pattern("ACA")

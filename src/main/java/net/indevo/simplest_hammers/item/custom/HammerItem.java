@@ -20,18 +20,6 @@ public class HammerItem extends DiggerItem implements Vanishable {
         super(pAttackDamageModifier, pAttackSpeedModifier, pTier, BlockTags.MINEABLE_WITH_PICKAXE, pProperties);
     }
 
-    @Override
-    public boolean hasCraftingRemainingItem(ItemStack stack) {
-        return stack.getDamageValue() < this.getMaxDamage(stack);
-    }
-
-    @Override
-    public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
-        ItemStack old = itemStack.copy();
-        old.setDamageValue(old.getDamageValue()+1);
-        return old;
-    }
-
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initalBlockPos, ServerPlayer player) {
         List<BlockPos> positions = new ArrayList<>();
 
