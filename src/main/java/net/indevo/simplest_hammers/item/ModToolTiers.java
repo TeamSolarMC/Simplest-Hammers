@@ -16,7 +16,7 @@ import java.util.List;
 public class ModToolTiers {
     public static final Tier WOOD = TierSortingRegistry.registerTier(
             new ForgeTier(0, 88, 1.0F, 1.0F, 15,
-                    ModTags.Blocks.NEEDS_WOOD_TOOL, () -> Ingredient.of(ItemTags.PLANKS)),
+                    ModTags.Blocks.NEEDS_WOODEN_TOOL, () -> Ingredient.of(ItemTags.PLANKS)),
             new ResourceLocation(SimplestHammers.MOD_ID, "planks"), List.of(Tiers.WOOD), List.of());
 
     public static final Tier STONE = TierSortingRegistry.registerTier(
@@ -31,7 +31,7 @@ public class ModToolTiers {
 
     public static final Tier GOLD = TierSortingRegistry.registerTier(
             new ForgeTier(0, 48, 8.0F, 1.0F, 22,
-                    ModTags.Blocks.NEEDS_GOLD_TOOL, () -> Ingredient.of(Items.GOLD_INGOT)),
+                    ModTags.Blocks.NEEDS_GOLDEN_TOOL, () -> Ingredient.of(Items.GOLD_INGOT)),
             new ResourceLocation(SimplestHammers.MOD_ID, "gold_ingot"), List.of(Tiers.GOLD), List.of());
 
     public static final Tier DIAMOND = TierSortingRegistry.registerTier(

@@ -11,10 +11,10 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     public static class Blocks {
 
-        public static final TagKey<Block> NEEDS_WOOD_TOOL = tag("needs_wood_tool");
+        public static final TagKey<Block> NEEDS_WOODEN_TOOL = tag("needs_wooden_tool");
         public static final TagKey<Block> NEEDS_STONE_TOOL = tag("needs_stone_tool");
         public static final TagKey<Block> NEEDS_IRON_TOOL = tag("needs_iron_tool");
-        public static final TagKey<Block> NEEDS_GOLD_TOOL = tag("needs_gold_tool");
+        public static final TagKey<Block> NEEDS_GOLDEN_TOOL = tag("needs_golden_tool");
         public static final TagKey<Block> NEEDS_DIAMOND_TOOL = tag("needs_diamond_tool");
         public static final TagKey<Block> NEEDS_NETHERITE_TOOL = tag("needs_netherite_tool");
 

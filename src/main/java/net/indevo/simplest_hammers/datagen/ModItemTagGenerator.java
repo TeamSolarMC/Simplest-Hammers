@@ -22,9 +22,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ModTags.Items.HAMMERS)
                 .add(
-                        ModItems.WOOD_HAMMER.get(),
+                        ModItems.WOODEN_HAMMER.get(),
                         ModItems.STONE_HAMMER.get(),
-                        ModItems.GOLD_HAMMER.get(),
+                        ModItems.GOLDEN_HAMMER.get(),
                         ModItems.IRON_HAMMER.get(),
                         ModItems.DIAMOND_HAMMER.get(),
                         ModItems.NETHERITE_HAMMER.get());

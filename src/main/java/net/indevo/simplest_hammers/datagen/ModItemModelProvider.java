@@ -20,10 +20,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        handheldItem(ModItems.WOOD_HAMMER);
+        handheldItem(ModItems.WOODEN_HAMMER);
         handheldItem(ModItems.STONE_HAMMER);
         handheldItem(ModItems.IRON_HAMMER);
-        handheldItem(ModItems.GOLD_HAMMER);
+        handheldItem(ModItems.GOLDEN_HAMMER);
         handheldItem(ModItems.DIAMOND_HAMMER);
         handheldItem(ModItems.NETHERITE_HAMMER);
     }

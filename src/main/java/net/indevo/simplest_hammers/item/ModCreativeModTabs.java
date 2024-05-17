@@ -17,10 +17,10 @@ public class ModCreativeModTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NETHERITE_HAMMER.get()))
                     .title(Component.translatable("creativetab.simplest_hammers_tab"))
                     .displayItems(((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.WOOD_HAMMER.get());
+                        pOutput.accept(ModItems.WOODEN_HAMMER.get());
                         pOutput.accept(ModItems.STONE_HAMMER.get());
                         pOutput.accept(ModItems.IRON_HAMMER.get());
-                        pOutput.accept(ModItems.GOLD_HAMMER.get());
+                        pOutput.accept(ModItems.GOLDEN_HAMMER.get());
                         pOutput.accept(ModItems.DIAMOND_HAMMER.get());
                         pOutput.accept(ModItems.NETHERITE_HAMMER.get());
                     }))

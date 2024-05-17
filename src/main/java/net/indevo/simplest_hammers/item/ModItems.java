@@ -12,13 +12,13 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, SimplestHammers.MOD_ID);
 
-    public static final RegistryObject<Item> WOOD_HAMMER = ITEMS.register("wood_hammer",
+    public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(ModToolTiers.WOOD, 5, -3.4F, new Item.Properties().durability(88)));
     public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer",
             () -> new HammerItem(ModToolTiers.STONE, 5, -3.4F, new Item.Properties().durability(196)));
     public static final RegistryObject<Item> IRON_HAMMER = ITEMS.register("iron_hammer",
             () -> new HammerItem(ModToolTiers.IRON, 5, -3.4F, new Item.Properties().durability(375)));
-    public static final RegistryObject<Item> GOLD_HAMMER = ITEMS.register("gold_hammer",
+    public static final RegistryObject<Item> GOLDEN_HAMMER = ITEMS.register("golden_hammer",
             () -> new HammerItem(ModToolTiers.GOLD, 5, -3.4F, new Item.Properties().durability(48)));
     public static final RegistryObject<Item> DIAMOND_HAMMER = ITEMS.register("diamond_hammer",
             () -> new HammerItem(ModToolTiers.DIAMOND, 5, -3.4F, new Item.Properties().durability(2341)));

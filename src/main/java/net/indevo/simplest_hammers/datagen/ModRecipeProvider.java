@@ -52,7 +52,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(Items.STICK).build()))
                 .save(p_251297_);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_HAMMER.get())
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern(" C ")
@@ -69,7 +69,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         netheriteSmithing(p_251297_, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOOD_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_HAMMER.get())
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern(" C ")
