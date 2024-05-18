@@ -10,7 +10,7 @@ license="MIT"
 
 modId="simplest_hammers"
 
-version="1.1.1"
+version="1.1.2"
 
 displayName="Simplest Hammers"
 
@@ -18,7 +18,7 @@ authors="IndEvo Studio" #optional
 
 
 
-description='''A light mod adding vanilla hammers breaking in area 3x3.'''
+description='''Vanilla hammers breaking in a 3x3 area.'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.simplest_hammers]] #optional
 # the modid of the dependency
