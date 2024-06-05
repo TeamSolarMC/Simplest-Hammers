@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "tag": "minecraft:logs"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "ACA",
+    " C "
+  ],
+  "result": {
+    "item": "simplest_hammers:wooden_hammer"
+  },
+  "show_notification": true
+}

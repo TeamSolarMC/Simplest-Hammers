@@ -4,8 +4,5 @@
   "item.simplest_hammers.iron_hammer": "Железный молот",
   "item.simplest_hammers.golden_hammer": "Золотой молот",
   "item.simplest_hammers.diamond_hammer": "Алмазный молот",
-  "item.simplest_hammers.netherite_hammer": "Незеритовый молот",
-
-
-  "creativetab.simplest_hammers_tab": "Simplest Hammers"
+  "item.simplest_hammers.netherite_hammer": "Незеритовый молот"
 }

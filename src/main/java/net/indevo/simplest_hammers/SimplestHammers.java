@@ -1,8 +1,8 @@
 package net.indevo.simplest_hammers;
 
 import com.mojang.logging.LogUtils;
-import net.indevo.simplest_hammers.item.ModCreativeModTabs;
 import net.indevo.simplest_hammers.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,8 +24,6 @@ public class SimplestHammers
     public SimplestHammers() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModCreativeModTabs.register(modEventBus);
-
         ModItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -39,7 +37,22 @@ public class SimplestHammers
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+    if(event.getTabKey() == CreativeModeTabs.COMBAT) {
+        event.accept(ModItems.WOODEN_HAMMER);
+        event.accept(ModItems.STONE_HAMMER);
+        event.accept(ModItems.IRON_HAMMER);
+        event.accept(ModItems.GOLDEN_HAMMER);
+        event.accept(ModItems.DIAMOND_HAMMER);
+        event.accept(ModItems.NETHERITE_HAMMER);
+        }
+    if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+        event.accept(ModItems.WOODEN_HAMMER);
+        event.accept(ModItems.STONE_HAMMER);
+        event.accept(ModItems.IRON_HAMMER);
+        event.accept(ModItems.GOLDEN_HAMMER);
+        event.accept(ModItems.DIAMOND_HAMMER);
+        event.accept(ModItems.NETHERITE_HAMMER);
+        }
     }
 
     @SubscribeEvent
