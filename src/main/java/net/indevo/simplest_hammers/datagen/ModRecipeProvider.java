@@ -162,12 +162,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.DIAMOND_HAMMER.get(),
                 output
         );
-        hammerUpgradeRecipe(
+        /* hammerUpgradeRecipe(
                 Ingredient.of(ModItems.DIAMOND_HAMMER.get()),
                 Ingredient.of(Items.NETHERITE_INGOT),
                 ModItems.NETHERITE_HAMMER.get(),
                 output
-        );
+        ); */
+        netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
     }
     private Criterion<InventoryChangeTrigger.TriggerInstance> hasInInventory(ItemLike item) {
         return inventoryTrigger(ItemPredicate.Builder.item()

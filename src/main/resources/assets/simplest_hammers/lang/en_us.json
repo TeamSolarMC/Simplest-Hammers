@@ -6,5 +6,10 @@
   "item.simplest_hammers.diamond_hammer": "Diamond Hammer",
   "item.simplest_hammers.netherite_hammer": "Netherite Hammer",
 
-  "item.simplest_hammers.hammer_smithing_template": "Smithing Template (Hammer)"
+  "item.simplest_hammers.hammer_smithing_template": "Smithing Template",
+  "item.simplest_hammers.hammer_smithing_template.applies_to": "APPLIES_TO",
+  "item.simplest_hammers.hammer_smithing_template.ingredients": "INGREDIENTS",
+  "item.simplest_hammers.hammer_smithing_template.upgrade_description": "UPGRADE_DESCRIPTION",
+  "item.simplest_hammers.hammer_smithing_template.base_slot_description": "BASE_SLOT_DESCRIPTION",
+  "item.simplest_hammers.hammer_smithing_template.additions_slot_description": "ADDITIONS_SLOT_DESCRIPTION"
 }

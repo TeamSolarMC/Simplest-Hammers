@@ -2,6 +2,7 @@ package net.indevo.simplest_hammers.item;
 
 import net.indevo.simplest_hammers.SimplestHammers;
 import net.indevo.simplest_hammers.item.custom.HammerItem;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -75,11 +76,11 @@ public class ModItems {
 
     public static final DeferredItem<SmithingTemplateItem> HAMMER_SMITHING_TEMPLATE = ITEMS.register("hammer_smithing_template",
             () -> new SmithingTemplateItem(
-                    Component.literal("APPLIES_TO"),
-                    Component.literal("INGREDIENTS"),
-                    Component.literal("UPGRADE_DESCRIPTION"),
-                    Component.literal("BASE_SLOT_DESCRIPTION"),
-                    Component.literal("ADDITIONS_SLOT_DESCRIPTION"),
+                    Component.translatable("item.simplest_hammers.hammer_smithing_template.applies_to").withStyle(ChatFormatting.GRAY), // TITLE_FORMAT
+                    Component.translatable("item.simplest_hammers.hammer_smithing_template.ingredients").withStyle(ChatFormatting.BLUE), // DESCRIPTION_FORMAT
+                    Component.translatable("item.simplest_hammers.hammer_smithing_template.upgrade_description").withStyle(ChatFormatting.GRAY), // TITLE_FORMAT
+                    Component.translatable("item.simplest_hammers.hammer_smithing_template.base_slot_description"), // No formatting
+                    Component.translatable("item.simplest_hammers.hammer_smithing_template.additions_slot_description"), // No formatting
                     // Base slot empty icons
                     List.of(
                             ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe"),
