@@ -82,7 +82,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern("AAA")
-                .define('A', Items.IRON_INGOT)
+                .define('A', Items.EMERALD)
                 .define('B', ModItems.HAMMER_SMITHING_TEMPLATE)
                 .define('C', Items.COBBLESTONE)
                 .unlockedBy("has_hammer_template", hasInInventory(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
