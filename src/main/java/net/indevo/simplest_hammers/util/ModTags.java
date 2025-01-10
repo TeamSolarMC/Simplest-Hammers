@@ -19,10 +19,10 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_NETHERITE_TOOL = tag("needs_netherite_tool");
 
         private static TagKey<Block> tag(String name) {
-            return BlockTags.create(new ResourceLocation(SimplestHammers.MOD_ID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, name));
         }
         private static TagKey<Block> forgeTag(String name) {
-            return BlockTags.create(new ResourceLocation("forge", name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath("forge", name));
         }
     }
 
@@ -30,10 +30,10 @@ public class ModTags {
         public static final TagKey<Item> HAMMERS = forgeTag("hammers");
 
         private static TagKey<Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(SimplestHammers.MOD_ID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, name));
         }
         private static TagKey<Item> forgeTag(String name) {
-            return ItemTags.create(new ResourceLocation("forge", name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", name));
         }
     }
 }

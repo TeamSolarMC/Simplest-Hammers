@@ -2,25 +2,28 @@ package net.indevo.simplest_hammers.datagen;
 
 import net.indevo.simplest_hammers.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    public ModRecipeProvider(PackOutput pOutput) {
-        super(pOutput);
+    public ModRecipeProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(packOutput, lookupProvider);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> p_251297_) {
+    protected void buildRecipes(@NotNull RecipeOutput output) {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_HAMMER.get())
                 .pattern("ABA")
@@ -35,7 +38,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(Items.IRON_BLOCK).build()))
                 .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(Items.STICK).build()))
-                .save(p_251297_);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_HAMMER.get())
                 .pattern("ABA")
@@ -50,7 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(Items.DIAMOND_BLOCK).build()))
                 .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(Items.STICK).build()))
-                .save(p_251297_);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_HAMMER.get())
                 .pattern("ABA")
@@ -65,9 +68,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(Items.GOLD_BLOCK).build()))
                 .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(Items.STICK).build()))
-                .save(p_251297_);
+                .save(output);
 
-        netheriteSmithing(p_251297_, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
+        netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_HAMMER.get())
                 .pattern("ABA")
@@ -82,6 +85,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ItemTags.LOGS).build()))
                 .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(Items.STICK).build()))
-                .save(p_251297_);
+                .save(output);
     }
 }
