@@ -1,25 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond": {
+    "has_logs": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:diamond"
-            ]
+            "items": "#minecraft:logs"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_diamond_block": {
+    "has_planks": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:diamond_block"
-            ]
+            "items": "#minecraft:planks"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:stick"
-            ]
+            "items": "minecraft:stick"
           }
         ]
       },
@@ -39,23 +33,22 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplest_hammers:diamond_hammer"
+        "recipe": "simplest_hammers:wooden_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_diamond",
-      "has_diamond_block",
-      "has_stick",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_planks",
+      "has_logs",
+      "has_stick"
     ]
   ],
   "rewards": {
     "recipes": [
-      "simplest_hammers:diamond_hammer"
+      "simplest_hammers:wooden_hammer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

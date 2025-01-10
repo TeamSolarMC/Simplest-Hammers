@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "A": {
-      "tag": "minecraft:planks"
+      "item": "minecraft:gold_ingot"
     },
     "B": {
-      "tag": "minecraft:logs"
+      "item": "minecraft:gold_block"
     },
     "C": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     " C "
   ],
   "result": {
-    "item": "simplest_hammers:wooden_hammer"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "simplest_hammers:golden_hammer"
+  }
 }

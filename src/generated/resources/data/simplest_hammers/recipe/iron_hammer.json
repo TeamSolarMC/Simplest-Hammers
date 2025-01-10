@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "minecraft:diamond"
+      "item": "minecraft:iron_ingot"
     },
     "B": {
-      "item": "minecraft:diamond_block"
+      "item": "minecraft:iron_block"
     },
     "C": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     " C "
   ],
   "result": {
-    "item": "simplest_hammers:diamond_hammer"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "simplest_hammers:iron_hammer"
+  }
 }
