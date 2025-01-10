@@ -6,19 +6,19 @@
       "item": "minecraft:iron_ingot"
     },
     "B": {
-      "item": "minecraft:iron_block"
+      "item": "simplest_hammers:hammer_smithing_template"
     },
     "C": {
-      "item": "minecraft:stick"
+      "item": "minecraft:cobblestone"
     }
   },
   "pattern": [
     "ABA",
     "ACA",
-    " C "
+    "AAA"
   ],
   "result": {
     "count": 1,
-    "id": "simplest_hammers:iron_hammer"
+    "id": "simplest_hammers:hammer_smithing_template"
   }
 }

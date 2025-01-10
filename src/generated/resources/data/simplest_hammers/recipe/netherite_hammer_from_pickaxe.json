@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "simplest_hammers:netherite_hammer"
+  },
+  "template": {
+    "item": "simplest_hammers:hammer_smithing_template"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "minecraft:planks"
+  },
+  "base": {
+    "item": "minecraft:wooden_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "simplest_hammers:wooden_hammer"
+  },
+  "template": {
+    "item": "simplest_hammers:hammer_smithing_template"
+  }
+}

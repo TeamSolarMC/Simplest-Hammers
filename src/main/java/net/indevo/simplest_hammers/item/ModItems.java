@@ -2,11 +2,16 @@ package net.indevo.simplest_hammers.item;
 
 import net.indevo.simplest_hammers.SimplestHammers;
 import net.indevo.simplest_hammers.item.custom.HammerItem;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.List;
 
 
 public class ModItems {
@@ -67,16 +72,27 @@ public class ModItems {
                     )
             )
     );
-    /*
-    public static final DeferredItem<HammerItem> IRON_HAMMER = ITEMS.register("iron_hammer",
-            () -> new HammerItem(Tiers.IRON, 6, -3.3F, new Item.Properties().durability(375)));
-    public static final DeferredItem<HammerItem> GOLDEN_HAMMER = ITEMS.register("golden_hammer",
-            () -> new HammerItem(Tiers.GOLD, 6, -3.2F, new Item.Properties().durability(48)));
-    public static final DeferredItem<HammerItem> DIAMOND_HAMMER = ITEMS.register("diamond_hammer",
-            () -> new HammerItem(Tiers.DIAMOND, 5, -3.2F, new Item.Properties().durability(2341)));
-    public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
-            () -> new HammerItem(Tiers.NETHERITE, 5, -3.2F, new Item.Properties().durability(3046).fireResistant()));
-*/
+
+    public static final DeferredItem<SmithingTemplateItem> HAMMER_SMITHING_TEMPLATE = ITEMS.register("hammer_smithing_template",
+            () -> new SmithingTemplateItem(
+                    Component.literal("APPLIES_TO"),
+                    Component.literal("INGREDIENTS"),
+                    Component.literal("UPGRADE_DESCRIPTION"),
+                    Component.literal("BASE_SLOT_DESCRIPTION"),
+                    Component.literal("ADDITIONS_SLOT_DESCRIPTION"),
+                    // Base slot empty icons
+                    List.of(
+                            ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe"),
+                            ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_hammer")
+                    ),
+                    List.of(
+                            ResourceLocation.withDefaultNamespace("item/empty_slot_ingot"),
+                            ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_block")
+                    )
+                    // Additional slot empty icons
+            )
+    );
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

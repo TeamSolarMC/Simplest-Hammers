@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hammer_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "simplest_hammers:hammer_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "simplest_hammers:stone_hammer_from_pickaxe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hammer_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "simplest_hammers:stone_hammer_from_pickaxe"
+    ]
+  }
+}

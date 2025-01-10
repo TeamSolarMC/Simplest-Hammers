@@ -1,6 +1,7 @@
-// 1.21.1	2025-01-09T22:46:13.026138	Item Models: simplest_hammers
+// 1.21.1	2025-01-10T00:12:36.8212761	Item Models: simplest_hammers
 1fcdd310b6e9fbfe59346d238e285d41a2c539a9 assets/simplest_hammers/models/item/diamond_hammer.json
 29fbaf7bd4b6da87216f9a30070ebc349f252f8c assets/simplest_hammers/models/item/golden_hammer.json
+7ba01e3be176f0103bb548df9db15f791f73a01f assets/simplest_hammers/models/item/hammer_smithing_template.json
 99fdc4f013894d19b0cbbbf6ba02abee45c85041 assets/simplest_hammers/models/item/iron_hammer.json
 fe97c4a192820049699bea94764f19a1ec378926 assets/simplest_hammers/models/item/netherite_hammer.json
 680644e0e11bdd28471fdd85d58e37f52e080b19 assets/simplest_hammers/models/item/stone_hammer.json

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:smooth_stone"
+  },
+  "base": {
+    "item": "simplest_hammers:wooden_hammer"
+  },
+  "result": {
+    "count": 1,
+    "id": "simplest_hammers:stone_hammer"
+  },
+  "template": {
+    "item": "simplest_hammers:hammer_smithing_template"
+  }
+}

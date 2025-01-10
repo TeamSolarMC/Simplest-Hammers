@@ -11,6 +11,6 @@
     "id": "simplest_hammers:netherite_hammer"
   },
   "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
+    "item": "simplest_hammers:hammer_smithing_template"
   }
 }

@@ -23,11 +23,19 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.GOLDEN_HAMMER);
         handheldItem(ModItems.DIAMOND_HAMMER);
         handheldItem(ModItems.NETHERITE_HAMMER);
+
+        simpleItem(ModItems.HAMMER_SMITHING_TEMPLATE);
     }
 
     private <T extends Item> ItemModelBuilder handheldItem(DeferredItem<T> item) {
         return withExistingParent(item.getId().getPath(),
                 mcLoc("item/handheld")).texture("layer0",
+                modLoc("item/" + item.getId().getPath()));
+    }
+
+    private <T extends Item>  ItemModelBuilder simpleItem(DeferredItem<T> item) {
+        return withExistingParent(item.getId().getPath(),
+                mcLoc("item/generated")).texture("layer0",
                 modLoc("item/" + item.getId().getPath()));
     }
 }

@@ -4,5 +4,7 @@
   "item.simplest_hammers.iron_hammer": "Iron Hammer",
   "item.simplest_hammers.golden_hammer": "Golden Hammer",
   "item.simplest_hammers.diamond_hammer": "Diamond Hammer",
-  "item.simplest_hammers.netherite_hammer": "Netherite Hammer"
+  "item.simplest_hammers.netherite_hammer": "Netherite Hammer",
+
+  "item.simplest_hammers.hammer_smithing_template": "Smithing Template (Hammer)"
 }
