@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-10T00:48:40.7916596	Recipes
+// 1.21.1	2025-01-10T01:06:21.3175969	Recipes
 279a81ce77413ecd614b8bcf18ed9279396fffec data/simplest_hammers/advancement/recipes/misc/hammer_smithing_template.json
 faba8d07a7a15373b0f793c09c302f2657ed2f63 data/simplest_hammers/advancement/recipes/tools/diamond_hammer_from_pickaxe.json
 13ce3200145db62822d1ce5270c13c1d7288bd2c data/simplest_hammers/advancement/recipes/tools/diamond_hammer_from_upgrade.json
@@ -15,7 +15,7 @@ c0b74880e4e79decea5214ea8622673a5f440c7b data/simplest_hammers/advancement/recip
 ed12961a8d56f156b57ce4fdb65f43811d6aebb9 data/simplest_hammers/recipe/diamond_hammer_from_upgrade.json
 9bc459f15839d5b531bd3ce81ae5789251170e02 data/simplest_hammers/recipe/golden_hammer_from_pickaxe.json
 85f2d58804bcac531ea623a8e784f88382e36100 data/simplest_hammers/recipe/golden_hammer_from_upgrade.json
-b43965cc463e0cdce3ff8cb49e98ec5a238ea233 data/simplest_hammers/recipe/hammer_smithing_template.json
+4a6ca9318f4d449150b2551c0fb5befc2f13be39 data/simplest_hammers/recipe/hammer_smithing_template.json
 72a64de01ff2fcc3bf10a4b3c3e32f182cf752b6 data/simplest_hammers/recipe/iron_hammer_from_pickaxe.json
 497a5cfe81945d2b4bbfef6e831d534bf96f1761 data/simplest_hammers/recipe/iron_hammer_from_upgrade.json
 5c021b156f1914e9c092bb8a1e45dedea9c4acd0 data/simplest_hammers/recipe/netherite_hammer_from_pickaxe.json

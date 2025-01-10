@@ -78,7 +78,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
          */
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HAMMER_SMITHING_TEMPLATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HAMMER_SMITHING_TEMPLATE.get(), 2)
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern("AAA")
