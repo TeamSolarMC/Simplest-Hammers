@@ -28,6 +28,9 @@ public class ModEvents {
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
+        if(player.isShiftKeyDown()) {
+            return;
+        }
         ItemStack mainHandItem = player.getMainHandItem();
 
         if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
