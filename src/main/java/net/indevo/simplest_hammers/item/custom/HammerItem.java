@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.ClipContext;
@@ -14,9 +15,10 @@ import net.minecraft.world.phys.HitResult;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HammerItem extends DiggerItem {
+public class HammerItem extends DiggerItemWithoutDurability {
     public HammerItem(Tier tier, Properties properties) {
         super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
+        ((Item) this).components();
     }
 
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initialBlockPos, ServerPlayer player) {
