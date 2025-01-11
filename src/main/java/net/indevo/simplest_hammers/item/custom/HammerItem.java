@@ -19,41 +19,46 @@ public class HammerItem extends DiggerItem {
         super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
     }
 
-    public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initalBlockPos, ServerPlayer player) {
+    public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initialBlockPos, ServerPlayer player) {
         List<BlockPos> positions = new ArrayList<>();
 
+
+        if(player.isShiftKeyDown()) {
+            return positions;
+        }
         BlockHitResult traceResult = player.level().clip(new ClipContext(player.getEyePosition(1f),
                 (player.getEyePosition(1f).add(player.getViewVector(1f).scale(6f))),
                 ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
         if(traceResult.getType() == HitResult.Type.MISS) {
             return positions;
-        }
-
-        if(traceResult.getDirection() == Direction.DOWN || traceResult.getDirection() == Direction.UP) {
-            for(int x = -range; x <= range; x++) {
-                for(int y = -range; y <= range; y++) {
-                    positions.add(new BlockPos(initalBlockPos.getX() + x, initalBlockPos.getY(), initalBlockPos.getZ() + y));
-                }
+        } else {
+            // assuming that the clip hit a block
+            switch(traceResult.getDirection()) {
+                case UP, DOWN:
+                    for(int x = -range; x <= range; x++) {
+                        for(int y = -range; y <= range; y++) {
+                            positions.add(new BlockPos(initialBlockPos.getX() + x, initialBlockPos.getY(), initialBlockPos.getZ() + y));
+                        }
+                    }
+                    break;
+                case EAST, WEST:
+                    for(int x = -range; x <= range; x++) {
+                        for(int y = -range; y <= range; y++) {
+                            positions.add(new BlockPos(initialBlockPos.getX(), initialBlockPos.getY() + y, initialBlockPos.getZ() + x));
+                        }
+                    }
+                    break;
+                case NORTH, SOUTH:
+                    for(int x = -range; x <= range; x++) {
+                        for(int y = -range; y <= range; y++) {
+                            positions.add(new BlockPos(initialBlockPos.getX() + x, initialBlockPos.getY() + y, initialBlockPos.getZ()));
+                        }
+                    }
+                    break;
             }
+            positions = positions.stream().filter(it -> !it.equals(initialBlockPos)).toList();
+
+            return positions;
         }
-
-        if(traceResult.getDirection() == Direction.NORTH || traceResult.getDirection() == Direction.SOUTH) {
-            for(int x = -range; x <= range; x++) {
-                for(int y = -range; y <= range; y++) {
-                    positions.add(new BlockPos(initalBlockPos.getX() + x, initalBlockPos.getY() + y, initalBlockPos.getZ()));
-                }
-            }
-        }
-
-        if(traceResult.getDirection() == Direction.EAST || traceResult.getDirection() == Direction.WEST) {
-            for(int x = -range; x <= range; x++) {
-                for(int y = -range; y <= range; y++) {
-                    positions.add(new BlockPos(initalBlockPos.getX(), initalBlockPos.getY() + y, initalBlockPos.getZ() + x));
-                }
-            }
-        }
-
-
-        return positions;
     }
 }

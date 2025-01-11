@@ -29,23 +29,29 @@ public class ModEvents {
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
-        if(player.isShiftKeyDown()) {
-            return;
-        }
         ItemStack mainHandItem = player.getMainHandItem();
 
         if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
-            BlockPos initalBlockPos = event.getPos();
-            if (HARVESTED_BLOCKS.contains(initalBlockPos)) {
+            BlockPos initialBlockPos = event.getPos();
+            if (HARVESTED_BLOCKS.contains(initialBlockPos)) {
+                return;
+            }
+            if(!hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(initialBlockPos))) {
                 return;
             }
 
-            for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initalBlockPos, serverPlayer)) {
-                if(pos == initalBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
-                    event.setCanceled(true);
+            // var blocksToMine = HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer);
+            // SimplestHammers.getLogger().info("%d blocks to mine".formatted(blocksToMine.size()));
+            for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(1, initialBlockPos, serverPlayer)) {
+                if(!hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
+                    // event.setCanceled(true);
                     continue;
                 }
-
+                if(pos.equals(initialBlockPos)) {
+                    SimplestHammers.getLogger().warn("Mined block that was already set to be mined");
+                    // event.setCanceled(true);
+                    // continue;
+                }
                 // Have to add them to a Set otherwise, the same code right here will get called for each block!
                 HARVESTED_BLOCKS.add(pos);
                 // Level level = serverPlayer.level();
