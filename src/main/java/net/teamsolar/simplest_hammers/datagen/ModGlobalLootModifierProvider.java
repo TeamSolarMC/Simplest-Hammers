@@ -1,20 +1,16 @@
-package net.indevo.simplest_hammers.datagen;
+package net.teamsolar.simplest_hammers.datagen;
 
-import net.indevo.simplest_hammers.SimplestHammers;
-import net.indevo.simplest_hammers.loot.ModLootModifier;
-import net.indevo.simplest_hammers.item.ModItems;
+import net.teamsolar.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.loot.ModLootModifier;
+import net.teamsolar.simplest_hammers.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {

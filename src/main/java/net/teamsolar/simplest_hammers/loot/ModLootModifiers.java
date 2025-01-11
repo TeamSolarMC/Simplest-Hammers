@@ -1,7 +1,7 @@
-package net.indevo.simplest_hammers.loot;
+package net.teamsolar.simplest_hammers.loot;
 
 import com.mojang.serialization.MapCodec;
-import net.indevo.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.registries.DeferredRegister;

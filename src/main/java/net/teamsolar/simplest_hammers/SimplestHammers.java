@@ -1,22 +1,15 @@
-package net.indevo.simplest_hammers;
+package net.teamsolar.simplest_hammers;
 
 import com.mojang.logging.LogUtils;
-import net.indevo.simplest_hammers.item.ModItems;
-import net.indevo.simplest_hammers.loot.ModLootModifiers;
+import net.teamsolar.simplest_hammers.item.ModItems;
+import net.teamsolar.simplest_hammers.loot.ModLootModifiers;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;

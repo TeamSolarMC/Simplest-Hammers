@@ -1,7 +1,7 @@
-package net.indevo.simplest_hammers.event;
+package net.teamsolar.simplest_hammers.event;
 
-import net.indevo.simplest_hammers.SimplestHammers;
-import net.indevo.simplest_hammers.item.custom.HammerItem;
+import net.teamsolar.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -44,7 +44,6 @@ public class ModEvents {
                 }
                 // Have to add them to a Set otherwise, the same code right here will get called for each block!
                 HARVESTED_BLOCKS.add(pos);
-                SimplestHammers.getLogger().info("Adding particles");
                 serverPlayer.gameMode.destroyBlock(pos);
                 HARVESTED_BLOCKS.remove(pos);
             }

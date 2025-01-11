@@ -1,7 +1,7 @@
-package net.indevo.simplest_hammers.item;
+package net.teamsolar.simplest_hammers.item;
 
-import net.indevo.simplest_hammers.SimplestHammers;
-import net.indevo.simplest_hammers.item.custom.HammerItem;
+import net.teamsolar.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.item.custom.HammerItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

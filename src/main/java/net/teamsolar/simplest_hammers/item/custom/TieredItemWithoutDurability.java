@@ -1,4 +1,4 @@
-package net.indevo.simplest_hammers.item.custom;
+package net.teamsolar.simplest_hammers.item.custom;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

@@ -1,6 +1,6 @@
-package net.indevo.simplest_hammers.datagen;
+package net.teamsolar.simplest_hammers.datagen;
 
-import net.indevo.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
