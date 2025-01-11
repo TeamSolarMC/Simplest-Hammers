@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -48,8 +49,11 @@ public class ModEvents {
                 // Have to add them to a Set otherwise, the same code right here will get called for each block!
                 HARVESTED_BLOCKS.add(pos);
                 // Level level = serverPlayer.level();
-                // BlockState blockState = level.getBlockState(pos);
-                // level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockState), (float) pos.getX(), (float) pos.getY(), (float) pos.getZ(), 0.0, 0.0, 0.0);
+                // level.levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, pos, 0);
+                SimplestHammers.getLogger().info("Adding particles");
+                /*Level level = serverPlayer.level();
+                BlockState blockState = level.getBlockState(pos);
+                level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockState), (float) pos.getX(), (float) pos.getY(), (float) pos.getZ(), 0.0, 0.0, 0.0);*/
                 serverPlayer.gameMode.destroyBlock(pos);
                 HARVESTED_BLOCKS.remove(pos);
             }
