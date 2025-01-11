@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:netherite_ingot"
+    "item": "minecraft:diamond_block"
   },
   "base": {
     "item": "minecraft:netherite_pickaxe"

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "tag": "minecraft:planks"
+    "tag": "minecraft:logs"
   },
   "base": {
     "item": "minecraft:wooden_pickaxe"
