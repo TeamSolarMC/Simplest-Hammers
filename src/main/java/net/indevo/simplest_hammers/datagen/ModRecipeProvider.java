@@ -103,7 +103,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         */
         hammerSmithingRecipe(
                 Ingredient.of(Items.WOODEN_PICKAXE),
-                Ingredient.of(ItemTags.PLANKS),
+                Ingredient.of(ItemTags.LOGS),
                 ModItems.WOODEN_HAMMER.get(),
                 output
         );
@@ -133,7 +133,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.NETHERITE_PICKAXE),
-                Ingredient.of(Items.NETHERITE_INGOT),
+                Ingredient.of(Items.DIAMOND_BLOCK),
                 ModItems.NETHERITE_HAMMER.get(),
                 output
         );
@@ -162,19 +162,32 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.DIAMOND_HAMMER.get(),
                 output
         );
-        /* hammerUpgradeRecipe(
-                Ingredient.of(ModItems.DIAMOND_HAMMER.get()),
-                Ingredient.of(Items.NETHERITE_INGOT),
-                ModItems.NETHERITE_HAMMER.get(),
-                output
-        ); */
         netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
+
+        SimpleCookingRecipeBuilder.smelting(
+                Ingredient.of(
+                        ModItems.IRON_HAMMER.get()
+                ),
+                RecipeCategory.MISC,
+                Items.IRON_NUGGET,
+                0.1F,
+                200
+        ).unlockedBy("has_iron_hammer", hasInInventory(ModItems.IRON_HAMMER.get())).save(output);
+        SimpleCookingRecipeBuilder.smelting(
+                Ingredient.of(
+                        ModItems.GOLDEN_HAMMER.get()
+                ),
+                RecipeCategory.MISC,
+                Items.GOLD_NUGGET,
+                0.1F,
+                200
+        ).unlockedBy("has_golden_hammer", hasInInventory(ModItems.GOLDEN_HAMMER.get())).save(output);
     }
+
     private Criterion<InventoryChangeTrigger.TriggerInstance> hasInInventory(ItemLike item) {
         return inventoryTrigger(ItemPredicate.Builder.item()
                 .of(item).build());
     }
-
     private String stripModId(String itemString) {
         /*LOGGER.info(itemString);
         Pattern pattern = Pattern.compile("(.+):(.+)");

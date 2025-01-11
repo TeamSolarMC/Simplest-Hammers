@@ -19,10 +19,11 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(SimplestHammers.MODID);
 
+    // Hammer durability will be 3x the durability of the vanilla pickaxe of the same tier.
     public static final DeferredItem<HammerItem> WOODEN_HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(
                     Tiers.WOOD,
-                    new Item.Properties().durability(88).attributes(HammerItem.createAttributes(
+                    new Item.Properties().durability(177).attributes(HammerItem.createAttributes(
                             Tiers.WOOD, 6.0F, -3.4F
                     )
                     )
@@ -31,7 +32,7 @@ public class ModItems {
     public static final DeferredItem<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
             () -> new HammerItem(
                     Tiers.STONE,
-                    new Item.Properties().durability(196).attributes(HammerItem.createAttributes(
+                    new Item.Properties().durability(393).attributes(HammerItem.createAttributes(
                                     Tiers.STONE, 7.0F, -3.4F
                             )
                     )
@@ -40,7 +41,7 @@ public class ModItems {
     public static final DeferredItem<HammerItem> IRON_HAMMER = ITEMS.register("iron_hammer",
             () -> new HammerItem(
                     Tiers.IRON,
-                    new Item.Properties().durability(375).attributes(HammerItem.createAttributes(
+                    new Item.Properties().durability(750).attributes(HammerItem.createAttributes(
                                 Tiers.IRON, 6.0F, -3.3F
                             )
                     )
@@ -49,7 +50,7 @@ public class ModItems {
     public static final DeferredItem<HammerItem> GOLDEN_HAMMER = ITEMS.register("golden_hammer",
             () -> new HammerItem(
                     Tiers.GOLD,
-                    new Item.Properties().durability(48).attributes(HammerItem.createAttributes(
+                    new Item.Properties().durability(96).attributes(HammerItem.createAttributes(
                             Tiers.GOLD, 6.0F, -3.2F
                             )
                     )
@@ -58,7 +59,7 @@ public class ModItems {
     public static final DeferredItem<HammerItem> DIAMOND_HAMMER = ITEMS.register("diamond_hammer",
             () -> new HammerItem(
                     Tiers.DIAMOND,
-                    new Item.Properties().durability(2341).attributes(HammerItem.createAttributes(
+                    new Item.Properties().durability(4683).attributes(HammerItem.createAttributes(
                             Tiers.DIAMOND, 5.0F, -3.2F
                             )
                     )
@@ -67,7 +68,7 @@ public class ModItems {
     public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
             () -> new HammerItem(
                     Tiers.NETHERITE,
-                    new Item.Properties().durability(3046).attributes(HammerItem.createAttributes(
+                    new Item.Properties().durability(6093).attributes(HammerItem.createAttributes(
                             Tiers.NETHERITE, 5.0F, -3.2F
                             )
                     )
