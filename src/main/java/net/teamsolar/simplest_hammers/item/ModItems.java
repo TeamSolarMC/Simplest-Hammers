@@ -88,7 +88,6 @@ public class ModItems {
                             ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_hammer")
                     ),
                     List.of(
-                            ResourceLocation.withDefaultNamespace("item/empty_slot_ingot"),
                             ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_block")
                     )
                     // Additional slot empty icons
