@@ -71,7 +71,7 @@ public class ModItems {
                     new Item.Properties().durability(6093).attributes(HammerItem.createAttributes(
                             Tiers.NETHERITE, 5.0F, -3.2F
                             )
-                    )
+                    ).fireResistant()
             )
     );
 
