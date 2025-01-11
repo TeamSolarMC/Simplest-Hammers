@@ -1,0 +1,8 @@
+{
+  "entries": [
+    "simplest_hammers:hammer_smithing_template_modifier_in_weaponsmith_chests",
+    "simplest_hammers:hammer_smithing_template_modifier_in_armorer_chests",
+    "simplest_hammers:hammer_smithing_template_modifier_in_toolsmith_chests"
+  ],
+  "replace": false
+}

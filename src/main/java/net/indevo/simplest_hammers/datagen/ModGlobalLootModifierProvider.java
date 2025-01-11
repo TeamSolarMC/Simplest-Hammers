@@ -30,19 +30,31 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         new LootItemCondition[]{
                                 LootTableIdCondition.builder(ResourceLocation.withDefaultNamespace("chests/village/village_toolsmith"))
                                         .and(
-                                                LootItemRandomChanceCondition.randomChance(1.0f)
+                                                LootItemRandomChanceCondition.randomChance(0.75f)
                                         ).build()
                         },
                         ModItems.HAMMER_SMITHING_TEMPLATE.get()
                 )
         );
         add(
-                "hammer_smithing_template_modifier_in_blacksmith_chests",
+                "hammer_smithing_template_modifier_in_armorer_chests",
                 new ModLootModifier(
                         new LootItemCondition[]{
                                 LootTableIdCondition.builder(ResourceLocation.withDefaultNamespace("chests/village/village_armorer"))
                                         .and(
-                                                LootItemRandomChanceCondition.randomChance(1.0f)
+                                                LootItemRandomChanceCondition.randomChance(0.75f)
+                                        ).build()
+                        },
+                        ModItems.HAMMER_SMITHING_TEMPLATE.get()
+                )
+        );
+        add(
+                "hammer_smithing_template_modifier_in_weaponsmith_chests",
+                new ModLootModifier(
+                        new LootItemCondition[]{
+                                LootTableIdCondition.builder(ResourceLocation.withDefaultNamespace("chests/village/village_weaponsmith"))
+                                        .and(
+                                                LootItemRandomChanceCondition.randomChance(0.75f)
                                         ).build()
                         },
                         ModItems.HAMMER_SMITHING_TEMPLATE.get()

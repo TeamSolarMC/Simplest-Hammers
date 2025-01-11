@@ -76,7 +76,7 @@ public class ModItems {
 
     public static final DeferredItem<SmithingTemplateItem> HAMMER_SMITHING_TEMPLATE = ITEMS.register("hammer_smithing_template",
             () -> new SmithingTemplateItem(
-                    Component.translatable("item.simplest_hammers.hammer_smithing_template.applies_to").withStyle(ChatFormatting.GRAY), // TITLE_FORMAT
+                    Component.translatable("item.simplest_hammers.hammer_smithing_template.applies_to").withStyle(ChatFormatting.BLUE), // DESCRIPTION_FORMAT
                     Component.translatable("item.simplest_hammers.hammer_smithing_template.ingredients").withStyle(ChatFormatting.BLUE), // DESCRIPTION_FORMAT
                     Component.translatable("item.simplest_hammers.hammer_smithing_template.upgrade_description").withStyle(ChatFormatting.GRAY), // TITLE_FORMAT
                     Component.translatable("item.simplest_hammers.hammer_smithing_template.base_slot_description"), // No formatting
