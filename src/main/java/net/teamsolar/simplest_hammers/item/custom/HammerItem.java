@@ -15,7 +15,6 @@ import java.util.List;
 public class HammerItem extends DiggerItemWithoutDurability {
     public HammerItem(Tier tier, Properties properties) {
         super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
-        ((Item) this).components();
     }
 
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initialBlockPos, ServerPlayer player) {

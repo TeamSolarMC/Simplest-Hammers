@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_hammer": {
+    "has_golden_hammer": {
       "conditions": {
         "items": [
           {
-            "items": "simplest_hammers:iron_hammer"
+            "items": "simplest_hammers:golden_hammer"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:iron_nugget"
+        "recipe": "minecraft:golden_hammer_blasting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_iron_hammer"
+      "has_golden_hammer"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:iron_nugget"
+      "minecraft:golden_hammer_blasting"
     ]
   }
 }

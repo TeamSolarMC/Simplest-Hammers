@@ -2,22 +2,25 @@ package net.teamsolar.simplest_hammers.event;
 
 import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.custom.HammerItem;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.event.level.BlockEvent;
+
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @EventBusSubscriber(modid = SimplestHammers.MODID)
-public class ModEvents {
+public class ModBlockBreakEvent {
     // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
     // Don't be a jerk License
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
+
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();

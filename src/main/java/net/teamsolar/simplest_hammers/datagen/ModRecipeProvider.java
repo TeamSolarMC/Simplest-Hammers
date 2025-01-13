@@ -161,24 +161,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         );
         netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
-        SimpleCookingRecipeBuilder.smelting(
-                Ingredient.of(
-                        ModItems.IRON_HAMMER.get()
-                ),
-                RecipeCategory.MISC,
-                Items.IRON_NUGGET,
-                0.1F,
-                200
-        ).unlockedBy("has_iron_hammer", hasInInventory(ModItems.IRON_HAMMER.get())).save(output);
-        SimpleCookingRecipeBuilder.smelting(
-                Ingredient.of(
-                        ModItems.GOLDEN_HAMMER.get()
-                ),
-                RecipeCategory.MISC,
-                Items.GOLD_NUGGET,
-                0.1F,
-                200
-        ).unlockedBy("has_golden_hammer", hasInInventory(ModItems.GOLDEN_HAMMER.get())).save(output);
+        basicBlastingAndSmeltingRecipe(ModItems.IRON_HAMMER.get(), Items.IRON_NUGGET, output);
+        basicBlastingAndSmeltingRecipe(ModItems.GOLDEN_HAMMER.get(), Items.GOLD_NUGGET, output);
     }
 
     private Criterion<InventoryChangeTrigger.TriggerInstance> hasInInventory(ItemLike item) {
@@ -215,5 +199,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_hammer_template", hasInInventory(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
                 .save(output, ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, stripModId(outputItem.toString()).concat("_from_upgrade")));
     }
-
+    private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem, RecipeOutput output) {
+        var unqualifiedItemName = stripModId(input.toString());
+        SimpleCookingRecipeBuilder.blasting(
+                        Ingredient.of(input),
+                        RecipeCategory.MISC,
+                        outputItem,
+                        0.1F,
+                        100
+                )
+                .unlockedBy("has_".concat(unqualifiedItemName), hasInInventory(input))
+                .save(output, ResourceLocation.withDefaultNamespace(unqualifiedItemName.concat("_blasting")));
+        SimpleCookingRecipeBuilder.smelting(
+                        Ingredient.of(input),
+                        RecipeCategory.MISC,
+                        outputItem,
+                        0.1F,
+                        200
+                )
+                .unlockedBy("has_".concat(unqualifiedItemName), hasInInventory(input))
+                .save(output, ResourceLocation.withDefaultNamespace(unqualifiedItemName.concat("_smelting")));
+    }
 }
