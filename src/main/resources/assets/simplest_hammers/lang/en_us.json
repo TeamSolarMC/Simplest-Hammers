@@ -11,5 +11,5 @@
   "item.simplest_hammers.hammer_smithing_template.ingredients": "Material Blocks",
   "item.simplest_hammers.hammer_smithing_template.upgrade_description": "Hammer Upgrade",
   "item.simplest_hammers.hammer_smithing_template.base_slot_description": "Add a hammer or a pickaxe",
-  "item.simplest_hammers.hammer_smithing_template.additions_slot_description": "Add an apropriate material block"
+  "item.simplest_hammers.hammer_smithing_template.additions_slot_description": "Add an appropriate material block"
 }
