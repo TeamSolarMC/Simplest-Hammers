@@ -2,8 +2,7 @@ modLoader="javafml" #mandatory
 
 loaderVersion="${loader_version_range}"
 
-
-license="MIT"
+license="${mod_license}"
 
 [[mods]]
 # The modid of the mod
@@ -18,9 +17,8 @@ displayName="${mod_name}" #mandatory
 # A text field displayed in the mod UI
 authors="${mod_authors}" #optional
 
-
-
-description='''Vanilla hammers breaking in a 3x3 area.'''
+# The description text for the mod (multi line!) (#mandatory)
+description='''${mod_description}'''
 logoFile = "icon.png"
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
