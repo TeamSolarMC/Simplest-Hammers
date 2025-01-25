@@ -1,11 +1,10 @@
-package net.indevo.simplest_hammers.item.custom;
+package net.teamsolar.simplest_hammers.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.level.ClipContext;

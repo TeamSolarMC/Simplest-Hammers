@@ -3,9 +3,6 @@
   "category": "misc",
   "key": {
     "A": {
-      "tag": "minecraft:planks"
-    },
-    "B": {
       "tag": "minecraft:logs"
     },
     "C": {
@@ -13,7 +10,7 @@
     }
   },
   "pattern": [
-    "ABA",
+    "AAA",
     "ACA",
     " C "
   ],

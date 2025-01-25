@@ -1,7 +1,7 @@
-package net.indevo.simplest_hammers.datagen;
+package net.teamsolar.simplest_hammers.datagen;
 
-import net.indevo.simplest_hammers.SimplestHammers;
-import net.indevo.simplest_hammers.item.ModItems;
+import net.teamsolar.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

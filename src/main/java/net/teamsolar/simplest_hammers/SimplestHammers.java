@@ -1,7 +1,7 @@
-package net.indevo.simplest_hammers;
+package net.teamsolar.simplest_hammers;
 
 import com.mojang.logging.LogUtils;
-import net.indevo.simplest_hammers.item.ModItems;
+import net.teamsolar.simplest_hammers.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

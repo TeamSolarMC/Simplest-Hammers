@@ -10,11 +10,12 @@ license="MIT"
 
 modId="simplest_hammers"
 
-version="1.1.3"
+version="1.1.4"
 
 displayName="Simplest Hammers"
 
-authors="IndEvo Studio" #optional
+authors="Team Solar"
+logoFile="icon.png"
 
 
 
@@ -39,11 +40,5 @@ modId="minecraft"
 mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${minecraft_version_range}"
-ordering="NONE"
-side="BOTH"
-[[dependencies.simplest_hammers]]
-modId="simplest_compression"
-mandatory=true
-versionRange="[1.0.0,)"
 ordering="NONE"
 side="BOTH"

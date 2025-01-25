@@ -1,6 +1,6 @@
-package net.indevo.simplest_hammers.util;
+package net.teamsolar.simplest_hammers.util;
 
-import net.indevo.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
