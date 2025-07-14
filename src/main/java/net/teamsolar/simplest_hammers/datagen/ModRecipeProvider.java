@@ -1,121 +1,89 @@
 package net.teamsolar.simplest_hammers.datagen;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 import net.teamsolar.simplest_hammers.item.ModItems;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+public class ModRecipeProvider extends FabricRecipeProvider {
+    private static final List<ItemConvertible> IRON_HAMMER = List.of(ModItems.IRON_HAMMER);
+    private static final List<ItemConvertible> GOLDEN_HAMMER = List.of(ModItems.GOLDEN_HAMMER);
 
-    public ModRecipeProvider(PackOutput pOutput) {
-        super(pOutput);
+    public ModRecipeProvider(FabricDataOutput output) {
+        super(output);
     }
-
-    private static final List<ItemLike> IRON_HAMMER = List.of(ModItems.IRON_HAMMER.get());
-    private static final List<ItemLike> GOLDEN_HAMMER = List.of(ModItems.GOLDEN_HAMMER.get());
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> p_251297_) {
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_HAMMER.get())
+    public void generate(Consumer<RecipeJsonProvider> exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.IRON_HAMMER)
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern(" C ")
-                .define('A', Items.IRON_INGOT)
-                .define('B', Items.IRON_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_iron_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.IRON_INGOT).build()))
-                .unlockedBy("has_iron_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.IRON_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
+                .input('A', Items.IRON_INGOT)
+                .input('B', Items.IRON_BLOCK)
+                .input('C', Items.STICK)
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .criterion(hasItem(Items.IRON_BLOCK), conditionsFromItem(Items.IRON_INGOT))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.WOODEN_HAMMER) + "_"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_HAMMER.get())
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_HAMMER)
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern(" C ")
-                .define('A', Items.DIAMOND)
-                .define('B', Items.DIAMOND_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_diamond", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.DIAMOND).build()))
-                .unlockedBy("has_diamond_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.DIAMOND_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
+                .input('A', Items.DIAMOND)
+                .input('B', Items.DIAMOND_BLOCK)
+                .input('C', Items.STICK)
+                .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
+                .criterion(hasItem(Items.DIAMOND_BLOCK), conditionsFromItem(Items.DIAMOND_BLOCK))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.DIAMOND_HAMMER) + "_"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_HAMMER.get())
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GOLDEN_HAMMER)
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern(" C ")
-                .define('A', Items.GOLD_INGOT)
-                .define('B', Items.GOLD_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_gold_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.GOLD_INGOT).build()))
-                .unlockedBy("has_gold_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.GOLD_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
+                .input('A', Items.GOLD_INGOT)
+                .input('B', Items.GOLD_BLOCK)
+                .input('C', Items.STICK)
+                .criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT))
+                .criterion(hasItem(Items.GOLD_BLOCK), conditionsFromItem(Items.GOLD_BLOCK))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GOLDEN_HAMMER)));
 
-        netheriteSmithing(p_251297_, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_HAMMER.get())
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WOODEN_HAMMER)
                 .pattern("AAA")
                 .pattern("ACA")
                 .pattern(" C ")
-                .define('A', ItemTags.LOGS)
-                .define('C', Items.STICK)
-                .unlockedBy("has_logs", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ItemTags.LOGS).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
+                .input('A', ItemTags.LOGS)
+                .input('C', Items.STICK)
+                .criterion("has_logs", conditionsFromTag(ItemTags.LOGS))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.WOODEN_HAMMER)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_HAMMER.get())
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STONE_HAMMER)
                 .pattern("AAA")
                 .pattern("ACA")
                 .pattern(" C ")
-                .define('A', Items.SMOOTH_STONE)
-                .define('C', Items.STICK)
-                .unlockedBy("has_smooth_stone", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.SMOOTH_STONE).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(p_251297_);
+                .input('A', Items.SMOOTH_STONE)
+                .input('C', Items.STICK)
+                .criterion(hasItem(Items.SMOOTH_STONE), conditionsFromItem(Items.SMOOTH_STONE))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.STONE_HAMMER)));
 
-        oreSmelting(p_251297_, IRON_HAMMER, RecipeCategory.MISC, Items.IRON_NUGGET, 0.1f, 200, "iron");
-        oreBlasting(p_251297_, IRON_HAMMER, RecipeCategory.MISC, Items.IRON_NUGGET, 0.1f, 100, "iron");
-        oreSmelting(p_251297_, GOLDEN_HAMMER, RecipeCategory.MISC, Items.GOLD_NUGGET, 0.1f, 200, "gold");
-        oreBlasting(p_251297_, GOLDEN_HAMMER, RecipeCategory.MISC, Items.GOLD_NUGGET, 0.1f, 100, "gold");
-    }
-
-    protected static void oreSmelting(Consumer<FinishedRecipe> p_250654_, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
-        oreCooking(p_250654_, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smelting");
-    }
-
-    protected static void oreBlasting(Consumer<FinishedRecipe> p_248775_, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
-        oreCooking(p_248775_, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
-    }
-
-    protected static void oreCooking(Consumer<FinishedRecipe> p_250791_, RecipeSerializer<? extends AbstractCookingRecipe> pSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pSuffix) {
-        for(ItemLike itemlike : pIngredients) {
-            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pSerializer).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike)).save(p_250791_, getItemName(pResult) + pSuffix + "_" + getItemName(itemlike));
-        }
-
+        offerNetheriteUpgradeRecipe(exporter, ModItems.DIAMOND_HAMMER, RecipeCategory.MISC, ModItems.NETHERITE_HAMMER);
+        offerSmelting(exporter, IRON_HAMMER, RecipeCategory.MISC, Items.IRON_NUGGET, 0.1f, 200, "iron");
+        offerBlasting(exporter, IRON_HAMMER, RecipeCategory.MISC, Items.IRON_NUGGET, 0.1f, 100, "iron");
+        offerSmelting(exporter, GOLDEN_HAMMER, RecipeCategory.MISC, Items.GOLD_NUGGET, 0.1f, 200, "gold");
+        offerBlasting(exporter, GOLDEN_HAMMER, RecipeCategory.MISC, Items.GOLD_NUGGET, 0.1f, 100, "gold");
     }
 }

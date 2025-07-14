@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:smooth_stone"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ACA",
+    " C "
+  ],
+  "result": {
+    "item": "simplest_hammers:stone_hammer"
+  },
+  "show_notification": true
+}

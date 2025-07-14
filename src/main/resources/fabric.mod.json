@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "simplest_hammers",
+  "version": "${version}",
+  "name": "Simplest Hammers",
+  "description": "Vanilla hammers breaking in a 3x3 area.",
+  "authors": [
+    "CrawKatt!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/CrawKatt/Simplest-Hammers"
+  },
+  "license": "LGPL-2.1",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.teamsolar.simplest_hammers.SimplestHammers"
+    ],
+    "fabric-datagen": [
+      "net.teamsolar.simplest_hammers.SimplestHammersDataGenerator"
+    ]
+  },
+  "mixins": [
+    "simplest_hammers.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.2",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

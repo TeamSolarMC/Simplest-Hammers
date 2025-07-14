@@ -1,35 +1,44 @@
 package net.teamsolar.simplest_hammers.item.custom;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Vanishable;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
+import net.minecraft.item.MiningToolItem;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.Vanishable;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HammerItem extends DiggerItem implements Vanishable {
-    public HammerItem(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pAttackDamageModifier, pAttackSpeedModifier, pTier, BlockTags.MINEABLE_WITH_PICKAXE, pProperties);
+public class HammerItem extends MiningToolItem implements Vanishable {
+    public HammerItem(float attackDamage, float attackSpeed, ToolMaterial material, Settings settings) {
+        super(attackDamage, attackSpeed, material, BlockTags.PICKAXE_MINEABLE, settings);
     }
 
-    public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initalBlockPos, ServerPlayer player) {
+    public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initalBlockPos, ServerPlayerEntity player) {
         List<BlockPos> positions = new ArrayList<>();
 
-        BlockHitResult traceResult = player.level().clip(new ClipContext(player.getEyePosition(1f),
-                (player.getEyePosition(1f).add(player.getViewVector(1f).scale(6f))),
-                ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
-        if(traceResult.getType() == HitResult.Type.MISS) {
+        Vec3d start = player.getEyePos();
+        Vec3d end = start.add(player.getRotationVec(1.0f).multiply(6.0D));
+
+        BlockHitResult traceResult = player.getWorld().raycast(new RaycastContext(
+                start,
+                end,
+                RaycastContext.ShapeType.OUTLINE,
+                RaycastContext.FluidHandling.NONE,
+                player
+        ));
+
+        if (traceResult.getType() == HitResult.Type.MISS) {
             return positions;
         }
 
-        if(traceResult.getDirection() == Direction.DOWN || traceResult.getDirection() == Direction.UP) {
+        if (traceResult.getSide() == Direction.DOWN || traceResult.getSide() == Direction.UP) {
             for(int x = -range; x <= range; x++) {
                 for(int y = -range; y <= range; y++) {
                     positions.add(new BlockPos(initalBlockPos.getX() + x, initalBlockPos.getY(), initalBlockPos.getZ() + y));
@@ -37,7 +46,7 @@ public class HammerItem extends DiggerItem implements Vanishable {
             }
         }
 
-        if(traceResult.getDirection() == Direction.NORTH || traceResult.getDirection() == Direction.SOUTH) {
+        if (traceResult.getSide() == Direction.NORTH || traceResult.getSide() == Direction.SOUTH) {
             for(int x = -range; x <= range; x++) {
                 for(int y = -range; y <= range; y++) {
                     positions.add(new BlockPos(initalBlockPos.getX() + x, initalBlockPos.getY() + y, initalBlockPos.getZ()));
@@ -45,7 +54,7 @@ public class HammerItem extends DiggerItem implements Vanishable {
             }
         }
 
-        if(traceResult.getDirection() == Direction.EAST || traceResult.getDirection() == Direction.WEST) {
+        if (traceResult.getSide() == Direction.EAST || traceResult.getSide() == Direction.WEST) {
             for(int x = -range; x <= range; x++) {
                 for(int y = -range; y <= range; y++) {
                     positions.add(new BlockPos(initalBlockPos.getX(), initalBlockPos.getY() + y, initalBlockPos.getZ() + x));

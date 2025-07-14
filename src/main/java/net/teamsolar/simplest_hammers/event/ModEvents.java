@@ -1,20 +1,11 @@
 package net.teamsolar.simplest_hammers.event;
 
-import net.teamsolar.simplest_hammers.SimplestHammers;
-import net.teamsolar.simplest_hammers.item.custom.HammerItem;
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
-import java.util.HashSet;
-import java.util.Set;
-
-@Mod.EventBusSubscriber(modid = SimplestHammers.MOD_ID)
 public class ModEvents {
+    public static void registerEvents() {
+        PlayerBlockBreakEvents.AFTER.register(new HammerEvent());
+    }
 //
 //    // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
 //    // Don't be a jerk License
@@ -62,13 +53,13 @@ public class ModEvents {
 
     // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
     // Don't be a jerk License
-    private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
-    @SubscribeEvent
+    //private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
+    /*
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
-        Player player = event.getPlayer();
+        PlayerEntity player = event.getPlayer();
         ItemStack mainHandItem = player.getMainHandItem();
 
-        if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
+        if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayerEntity serverPlayer) {
             BlockPos initalBlockPos = event.getPos();
             if (HARVESTED_BLOCKS.contains(initalBlockPos)) {
                 return;
@@ -86,4 +77,5 @@ public class ModEvents {
             }
         }
     }
+    */
 }

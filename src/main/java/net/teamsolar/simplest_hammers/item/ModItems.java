@@ -1,33 +1,32 @@
 package net.teamsolar.simplest_hammers.item;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ToolMaterials;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.custom.HammerItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tiers;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-
 
 public class ModItems {
-    public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, SimplestHammers.MOD_ID);
+    public static final Item WOODEN_HAMMER = registerItem("wooden_hammer",
+            new HammerItem(6, -3.4F, ToolMaterials.WOOD, new Item.Settings().maxDamage(88)));
+    public static final Item STONE_HAMMER = registerItem("stone_hammer",
+            new HammerItem(7, -3.4F, ToolMaterials.STONE, new Item.Settings().maxDamage(196)));
+    public static final Item IRON_HAMMER = registerItem("iron_hammer",
+            new HammerItem(6, -3.3F, ToolMaterials.IRON, new Item.Settings().maxDamage(375)));
+    public static final Item GOLDEN_HAMMER = registerItem("golden_hammer",
+            new HammerItem(6, -3.2F, ToolMaterials.GOLD, new Item.Settings().maxDamage(48)));
+    public static final Item DIAMOND_HAMMER = registerItem("diamond_hammer",
+            new HammerItem(5, -3.2F, ToolMaterials.DIAMOND, new Item.Settings().maxDamage(2341)));
+    public static final Item NETHERITE_HAMMER = registerItem("netherite_hammer",
+            new HammerItem(5, -3.2F, ToolMaterials.NETHERITE, new Item.Settings().maxDamage(3046).fireproof()));
 
-    public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer",
-            () -> new HammerItem(Tiers.WOOD, 6, -3.4F, new Item.Properties().durability(88)));
-    public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer",
-            () -> new HammerItem(Tiers.STONE, 7, -3.4F, new Item.Properties().durability(196)));
-    public static final RegistryObject<Item> IRON_HAMMER = ITEMS.register("iron_hammer",
-            () -> new HammerItem(Tiers.IRON, 6, -3.3F, new Item.Properties().durability(375)));
-    public static final RegistryObject<Item> GOLDEN_HAMMER = ITEMS.register("golden_hammer",
-            () -> new HammerItem(Tiers.GOLD, 6, -3.2F, new Item.Properties().durability(48)));
-    public static final RegistryObject<Item> DIAMOND_HAMMER = ITEMS.register("diamond_hammer",
-            () -> new HammerItem(Tiers.DIAMOND, 5, -3.2F, new Item.Properties().durability(2341)));
-    public static final RegistryObject<Item> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
-            () -> new HammerItem(Tiers.NETHERITE, 5, -3.2F, new Item.Properties().durability(3046).fireResistant()));
+    private static Item registerItem(String name, Item item) {
+        return Registry.register(Registries.ITEM, new Identifier(SimplestHammers.MOD_ID, name), item);
+    }
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
+    public static void registerModItems() {
+        SimplestHammers.LOGGER.info("Registering Items for {}", SimplestHammers.MOD_ID);
     }
 }
