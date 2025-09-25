@@ -2,7 +2,6 @@ package net.teamsolar.simplest_hammers.item.custom;
 
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.Vanishable;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.hit.BlockHitResult;
@@ -15,9 +14,9 @@ import net.minecraft.world.RaycastContext;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HammerItem extends MiningToolItem implements Vanishable {
-    public HammerItem(float attackDamage, float attackSpeed, ToolMaterial material, Settings settings) {
-        super(attackDamage, attackSpeed, material, BlockTags.PICKAXE_MINEABLE, settings);
+public class HammerItem extends MiningToolItem {
+    public HammerItem(ToolMaterial material, Settings settings) {
+        super(material, BlockTags.PICKAXE_MINEABLE, settings);
     }
 
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initalBlockPos, ServerPlayerEntity player) {

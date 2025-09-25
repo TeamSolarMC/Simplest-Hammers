@@ -11,7 +11,7 @@ public class ModTags {
         public static final TagKey<Item> HAMMERS = tag("hammers");
 
         private static TagKey<Item> tag(String name) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(SimplestHammers.MOD_ID, name));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of(SimplestHammers.MOD_ID, name));
         }
     }
 }

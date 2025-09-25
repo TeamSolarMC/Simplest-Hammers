@@ -32,7 +32,7 @@ public class HammerEvent implements PlayerBlockBreakEvents.After {
                 if (positionTarget.equals(pos)) continue;
 
                 BlockState targetState = world.getBlockState(positionTarget);
-                if (!hammer.isSuitableFor(mainHandItem, targetState)) continue;
+                if (!hammer.isCorrectForDrops(mainHandItem, targetState)) continue;
 
                 HARVESTED_BLOCKS.add(positionTarget);
                 serverPlayer.interactionManager.tryBreakBlock(positionTarget);
