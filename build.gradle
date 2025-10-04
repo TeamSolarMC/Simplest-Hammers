@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version "${loom_version}"
     id 'maven-publish'
 }
 
@@ -20,7 +20,9 @@ repositories {
 }
 
 fabricApi {
-    configureDataGeneration()
+    configureDataGeneration {
+        client = true
+    }
 }
 
 dependencies {
@@ -55,6 +57,8 @@ java {
 }
 
 jar {
+    inputs.property "archivesName", project.base.archivesName
+
     from("LICENSE") {
         rename { "${it}_${project.base.archivesName.get()}"}
     }
