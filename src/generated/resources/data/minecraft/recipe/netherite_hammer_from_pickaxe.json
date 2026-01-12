@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:diamond_block",
+  "base": "minecraft:netherite_pickaxe",
+  "result": {
+    "id": "simplest_hammers:netherite_hammer"
+  },
+  "template": "simplest_hammers:hammer_smithing_template"
+}

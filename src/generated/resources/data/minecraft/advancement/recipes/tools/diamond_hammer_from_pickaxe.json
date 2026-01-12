@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplest_hammers:diamond_hammer_from_pickaxe"
+        "recipe": "minecraft:diamond_hammer_from_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "simplest_hammers:diamond_hammer_from_pickaxe"
+      "minecraft:diamond_hammer_from_pickaxe"
     ]
   }
 }

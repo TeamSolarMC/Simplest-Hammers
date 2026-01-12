@@ -1,19 +1,19 @@
 package net.teamsolar.simplest_hammers.datagen;
 
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.teamsolar.simplest_hammers.SimplestHammers;
-import net.teamsolar.simplest_hammers.loot.ModLootModifier;
-import net.teamsolar.simplest_hammers.item.ModItems;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
+import net.teamsolar.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.item.ModItems;
+import net.teamsolar.simplest_hammers.loot.ModLootModifier;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.regex.Pattern;
@@ -70,7 +70,9 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
     private String matchHouseType(String key) {
         Pattern nameMatcher = Pattern.compile("chests/village/(.+_house)");
         var results = nameMatcher.matcher(key);
-        results.find();
+        if(!results.find()) {
+            throw new RuntimeException("No village chests matching %s".formatted(key));
+        }
         return results.group(1);
         // SimplestExcavators.getLogger().info("%d".formatted(results.groupCount()));
         // SimplestExcavators.getLogger().info("%s".formatted(results.matches()));

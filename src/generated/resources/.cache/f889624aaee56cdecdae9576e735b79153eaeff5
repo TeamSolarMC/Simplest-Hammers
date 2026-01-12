@@ -1,5 +1,5 @@
-// 1.21.1	2025-01-14T12:07:55.7725962	Global Loot Modifiers : simplest_hammers
-768c65e51efbd0248cf199e077005ddfb55a0ce3 data/neoforge/loot_modifiers/global_loot_modifiers.json
+// 1.21.10	2026-01-12T12:48:17.3685852	Global Loot Modifiers : simplest_hammers
+4c2d0e85f0a3c58f27b202f570c933b730cf52fa data/neoforge/loot_modifiers/global_loot_modifiers.json
 7686fbcaf3e062822985959ef2ffe45bc5c486f3 data/simplest_hammers/loot_modifiers/hammer_smithing_template_in_village_desert_house.json
 42ebfc16e69c0a624354743ac9d0626c008f3f86 data/simplest_hammers/loot_modifiers/hammer_smithing_template_in_village_plains_house.json
 a133a65110a98575747ecb4bc37e5f758da499ff data/simplest_hammers/loot_modifiers/hammer_smithing_template_in_village_savanna_house.json

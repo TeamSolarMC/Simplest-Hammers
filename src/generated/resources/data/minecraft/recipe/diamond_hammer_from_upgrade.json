@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:diamond_block",
+  "base": "simplest_hammers:golden_hammer",
+  "result": {
+    "id": "simplest_hammers:diamond_hammer"
+  },
+  "template": "simplest_hammers:hammer_smithing_template"
+}

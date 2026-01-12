@@ -3,9 +3,7 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "simplest_hammers:iron_hammer"
-  },
+  "ingredient": "simplest_hammers:iron_hammer",
   "result": {
     "count": 1,
     "id": "minecraft:iron_nugget"

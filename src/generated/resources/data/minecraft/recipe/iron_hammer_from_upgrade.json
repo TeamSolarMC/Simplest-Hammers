@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:iron_block",
+  "base": "simplest_hammers:stone_hammer",
+  "result": {
+    "id": "simplest_hammers:iron_hammer"
+  },
+  "template": "simplest_hammers:hammer_smithing_template"
+}

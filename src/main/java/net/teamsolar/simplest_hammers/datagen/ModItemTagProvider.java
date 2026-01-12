@@ -1,26 +1,23 @@
 package net.teamsolar.simplest_hammers.datagen;
 
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import net.minecraft.tags.ItemTags;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.ModItems;
 import net.teamsolar.simplest_hammers.util.ModTags;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagGenerator extends ItemTagsProvider {
-    public ModItemTagGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> future,
-                               CompletableFuture<TagLookup<Block>> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-        super(packOutput, future, completableFuture, SimplestHammers.MODID, existingFileHelper);
+public class ModItemTagProvider extends ItemTagsProvider {
+    public ModItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, SimplestHammers.MODID);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(ModTags.Items.HAMMERS)
                 .add(
                         ModItems.WOODEN_HAMMER.get(),

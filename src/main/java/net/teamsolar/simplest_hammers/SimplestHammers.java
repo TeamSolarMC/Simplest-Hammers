@@ -1,8 +1,6 @@
 package net.teamsolar.simplest_hammers;
 
 import com.mojang.logging.LogUtils;
-import net.teamsolar.simplest_hammers.item.ModItems;
-import net.teamsolar.simplest_hammers.loot.ModLootModifiers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -15,6 +13,8 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.teamsolar.simplest_hammers.item.ModItems;
+import net.teamsolar.simplest_hammers.loot.ModLootModifiers;
 import org.slf4j.Logger;
 
 @Mod(SimplestHammers.MODID)
@@ -76,7 +76,7 @@ public class SimplestHammers
 
     }
 
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent

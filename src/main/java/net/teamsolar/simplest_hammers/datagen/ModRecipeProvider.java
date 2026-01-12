@@ -1,33 +1,26 @@
 package net.teamsolar.simplest_hammers.datagen;
 
-import net.teamsolar.simplest_hammers.SimplestHammers;
-import net.teamsolar.simplest_hammers.item.ModItems;
-import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
-import org.jetbrains.annotations.NotNull;
+import net.teamsolar.simplest_hammers.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.regex.Pattern;
 
-public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+public class ModRecipeProvider extends RecipeProvider {
 
-    public ModRecipeProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, lookupProvider);
+    public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        super(provider, recipeOutput);
     }
 
     @Override
-    protected void buildRecipes(@NotNull RecipeOutput output) {
+    protected void buildRecipes() {
 
         /*ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_HAMMER.get())
                 .pattern("ABA")
@@ -76,14 +69,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
          */
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HAMMER_SMITHING_TEMPLATE.get(), 2)
+        ShapedRecipeBuilder.shaped(this.registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, ModItems.HAMMER_SMITHING_TEMPLATE.toStack(2))
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern("AAA")
                 .define('A', Items.EMERALD)
                 .define('B', ModItems.HAMMER_SMITHING_TEMPLATE)
                 .define('C', Items.COBBLESTONE)
-                .unlockedBy("has_hammer_template", hasInInventory(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
+                .unlockedBy("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
                 .save(output);
 
         // netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
@@ -101,108 +94,90 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         */
         hammerSmithingRecipe(
                 Ingredient.of(Items.WOODEN_PICKAXE),
-                Ingredient.of(ItemTags.LOGS),
-                ModItems.WOODEN_HAMMER.get(),
-                output
+                // Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(ItemTags.LOGS)),
+                Ingredient.of(items.getOrThrow(ItemTags.LOGS)),
+                ModItems.WOODEN_HAMMER.get()
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.STONE_PICKAXE),
                 Ingredient.of(Items.SMOOTH_STONE),
-                ModItems.STONE_HAMMER.get(),
-                output
+                ModItems.STONE_HAMMER.get()
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.IRON_PICKAXE),
                 Ingredient.of(Items.IRON_BLOCK.asItem()),
-                ModItems.IRON_HAMMER.get(),
-                output
+                ModItems.IRON_HAMMER.get()
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.GOLDEN_PICKAXE),
                 Ingredient.of(Items.GOLD_BLOCK),
-                ModItems.GOLDEN_HAMMER.get(),
-                output
+                ModItems.GOLDEN_HAMMER.get()
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.DIAMOND_PICKAXE),
                 Ingredient.of(Items.DIAMOND_BLOCK),
-                ModItems.DIAMOND_HAMMER.get(),
-                output
+                ModItems.DIAMOND_HAMMER.get()
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.NETHERITE_PICKAXE),
                 Ingredient.of(Items.DIAMOND_BLOCK),
-                ModItems.NETHERITE_HAMMER.get(),
-                output
+                ModItems.NETHERITE_HAMMER.get()
         );
         // Upgrades
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.WOODEN_HAMMER.get()),
                 Ingredient.of(Items.SMOOTH_STONE),
-                ModItems.STONE_HAMMER.get(),
-                output
+                ModItems.STONE_HAMMER.get()
         );
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.STONE_HAMMER.get()),
                 Ingredient.of(Items.IRON_BLOCK),
-                ModItems.IRON_HAMMER.get(),
-                output
+                ModItems.IRON_HAMMER.get()
         );
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.IRON_HAMMER.get()),
                 Ingredient.of(Items.GOLD_BLOCK),
-                ModItems.GOLDEN_HAMMER.get(),
-                output
+                ModItems.GOLDEN_HAMMER.get()
         );
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.GOLDEN_HAMMER.get()),
                 Ingredient.of(Items.DIAMOND_BLOCK),
-                ModItems.DIAMOND_HAMMER.get(),
-                output
+                ModItems.DIAMOND_HAMMER.get()
         );
-        netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
+        netheriteSmithing(ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
-        basicBlastingAndSmeltingRecipe(ModItems.IRON_HAMMER.get(), Items.IRON_NUGGET, output);
-        basicBlastingAndSmeltingRecipe(ModItems.GOLDEN_HAMMER.get(), Items.GOLD_NUGGET, output);
+        basicBlastingAndSmeltingRecipe(ModItems.IRON_HAMMER.get(), Items.IRON_NUGGET);
+        basicBlastingAndSmeltingRecipe(ModItems.GOLDEN_HAMMER.get(), Items.GOLD_NUGGET);
     }
 
-    private Criterion<InventoryChangeTrigger.TriggerInstance> hasInInventory(ItemLike item) {
-        return inventoryTrigger(ItemPredicate.Builder.item()
-                .of(item).build());
-    }
-    private String stripNamespace(String itemString) {
-        Pattern pattern = Pattern.compile("(.+):(.+)");
-        var matches = pattern.matcher(itemString);
-        if(matches.find()) {
-            return matches.group(2);
-        }
-        return "";
+    private String itemNameWithoutNamespace(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item).getPath();
     }
 
-    private void hammerSmithingRecipe(Ingredient base, Ingredient additional, Item outputItem, RecipeOutput output) {
+    private void hammerSmithingRecipe(Ingredient base, Ingredient additional, Item outputItem) {
         SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE.get()), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
-                        base,
-                        additional,
-                        RecipeCategory.TOOLS,
-                        outputItem
-                )
-                .unlocks("has_hammer_template", hasInInventory(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, stripNamespace(outputItem.toString()).concat("_from_pickaxe")));
+            Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE.get()), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
+            base,
+            additional,
+            RecipeCategory.TOOLS,
+            outputItem
+        )
+            .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
+            .save(output, itemNameWithoutNamespace(outputItem).concat("_from_pickaxe"));
     }
-    private void hammerUpgradeRecipe(Ingredient base, Ingredient additional, Item outputItem, RecipeOutput output) {
+    private void hammerUpgradeRecipe(Ingredient base, Ingredient additional, Item outputItem) {
         SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE.get()), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
-                        base,
-                        additional,
-                        RecipeCategory.TOOLS,
-                        outputItem
-                )
-                .unlocks("has_hammer_template", hasInInventory(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, stripNamespace(outputItem.toString()).concat("_from_upgrade")));
+            Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE.get()), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
+            base,
+            additional,
+            RecipeCategory.TOOLS,
+            outputItem
+        )
+            .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
+            .save(output, itemNameWithoutNamespace(outputItem).concat("_from_upgrade"));
     }
-    private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem, RecipeOutput output) {
-        var unqualifiedItemName = stripNamespace(input.toString());
+    private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem) {
+        String unqualifiedItemName = itemNameWithoutNamespace(input);
         SimpleCookingRecipeBuilder.blasting(
                         Ingredient.of(input),
                         RecipeCategory.MISC,
@@ -210,8 +185,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         0.1F,
                         100
                 )
-                .unlockedBy("has_".concat(unqualifiedItemName), hasInInventory(input))
-                .save(output, ResourceLocation.withDefaultNamespace(unqualifiedItemName.concat("_blasting")));
+                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
+                .save(output, unqualifiedItemName.concat("_blasting"));
         SimpleCookingRecipeBuilder.smelting(
                         Ingredient.of(input),
                         RecipeCategory.MISC,
@@ -219,7 +194,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         0.1F,
                         200
                 )
-                .unlockedBy("has_".concat(unqualifiedItemName), hasInInventory(input))
-                .save(output, ResourceLocation.withDefaultNamespace(unqualifiedItemName.concat("_smelting")));
+                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
+                .save(output, unqualifiedItemName.concat("_smelting"));
+    }
+
+    public static class Runner extends RecipeProvider.Runner {
+        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
+            super(packOutput, provider);
+        }
+
+        @Override
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+            return new ModRecipeProvider(provider, recipeOutput);
+        }
+
+        @Override
+        public String getName() {
+            return "My Recipes";
+        }
     }
 }

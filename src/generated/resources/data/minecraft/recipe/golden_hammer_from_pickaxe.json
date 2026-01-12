@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:gold_block",
+  "base": "minecraft:golden_pickaxe",
+  "result": {
+    "id": "simplest_hammers:golden_hammer"
+  },
+  "template": "simplest_hammers:hammer_smithing_template"
+}

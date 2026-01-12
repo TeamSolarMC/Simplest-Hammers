@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "minecraft:emerald"
-    },
-    "B": {
-      "item": "simplest_hammers:hammer_smithing_template"
-    },
-    "C": {
-      "item": "minecraft:cobblestone"
-    }
+    "A": "minecraft:emerald",
+    "B": "simplest_hammers:hammer_smithing_template",
+    "C": "minecraft:cobblestone"
   },
   "pattern": [
     "ABA",

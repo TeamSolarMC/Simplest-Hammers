@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:smooth_stone",
+  "base": "minecraft:stone_pickaxe",
+  "result": {
+    "id": "simplest_hammers:stone_hammer"
+  },
+  "template": "simplest_hammers:hammer_smithing_template"
+}

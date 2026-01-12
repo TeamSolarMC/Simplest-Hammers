@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:logs",
+  "base": "minecraft:wooden_pickaxe",
+  "result": {
+    "id": "simplest_hammers:wooden_hammer"
+  },
+  "template": "simplest_hammers:hammer_smithing_template"
+}

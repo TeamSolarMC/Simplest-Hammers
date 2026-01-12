@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -12,10 +12,21 @@ import net.minecraft.world.phys.HitResult;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HammerItem extends DiggerItemWithoutDurability {
-    public HammerItem(Tier tier, Properties properties) {
-        super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
+public class HammerItem extends Item {
+    public HammerItem(Properties properties) {
+        super(properties);
     }
+
+    public static Item.Properties hammerProperties(ToolMaterial material, Item.Properties properties, float attackDamage, float attackSpeed, int durability) {
+        // Note that attackDamage is modified by the tool material's damage
+        // (i.e. attackDamage will be attackDamage + material.attackDamageBonus, attackSpeed will just be attackSpeed)
+        // Durability is set by the code
+        return properties
+            .tool(material, BlockTags.MINEABLE_WITH_PICKAXE, attackDamage, attackSpeed, 0.0F)
+            .durability(durability);
+    }
+
+
 
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initialBlockPos, ServerPlayer player) {
         List<BlockPos> positions = new ArrayList<>();

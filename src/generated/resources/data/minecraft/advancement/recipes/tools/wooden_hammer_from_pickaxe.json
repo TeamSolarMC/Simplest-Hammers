@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplest_hammers:stone_hammer_from_upgrade"
+        "recipe": "minecraft:wooden_hammer_from_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "simplest_hammers:stone_hammer_from_upgrade"
+      "minecraft:wooden_hammer_from_pickaxe"
     ]
   }
 }
