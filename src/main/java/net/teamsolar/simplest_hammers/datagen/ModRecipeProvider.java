@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.teamsolar.simplest_hammers.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,54 +23,11 @@ public class ModRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
 
-        /*ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_HAMMER.get())
-                .pattern("ABA")
-                .pattern("ACA")
-                .pattern(" C ")
-                .define('A', Items.IRON_INGOT)
-                .define('B', Items.IRON_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_iron_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.IRON_INGOT).build()))
-                .unlockedBy("has_iron_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.IRON_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_HAMMER.get())
-                .pattern("ABA")
-                .pattern("ACA")
-                .pattern(" C ")
-                .define('A', Items.DIAMOND)
-                .define('B', Items.DIAMOND_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_diamond", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.DIAMOND).build()))
-                .unlockedBy("has_diamond_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.DIAMOND_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(output);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLDEN_HAMMER.get())
-                .pattern("ABA")
-                .pattern("ACA")
-                .pattern(" C ")
-                .define('A', Items.GOLD_INGOT)
-                .define('B', Items.GOLD_BLOCK)
-                .define('C', Items.STICK)
-                .unlockedBy("has_gold_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.GOLD_INGOT).build()))
-                .unlockedBy("has_gold_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.GOLD_BLOCK).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.STICK).build()))
-                .save(output);
-
-         */
-
-        ShapedRecipeBuilder.shaped(this.registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, ModItems.HAMMER_SMITHING_TEMPLATE.toStack(2))
+        ShapedRecipeBuilder.shaped(
+                this.registries.lookupOrThrow(Registries.ITEM),
+                RecipeCategory.MISC,
+                ModItems.HAMMER_SMITHING_TEMPLATE.toStack(2)
+        )
                 .pattern("ABA")
                 .pattern("ACA")
                 .pattern("AAA")
@@ -79,22 +37,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
                 .save(output);
 
-        // netheriteSmithing(output, ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
-
-        /*
-        SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE.get()), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
-                Ingredient.of(Items.WOODEN_PICKAXE),
-                Ingredient.of(ItemTags.PLANKS),
-                RecipeCategory.TOOLS,
-                ModItems.WOODEN_HAMMER.get()
-        )
-                .unlocks("has_hammer_template", hasInInventory(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "wooden_hammer_from_pickaxe"));
-        */
         hammerSmithingRecipe(
                 Ingredient.of(Items.WOODEN_PICKAXE),
-                // Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(ItemTags.LOGS)),
                 Ingredient.of(items.getOrThrow(ItemTags.LOGS)),
                 ModItems.WOODEN_HAMMER.get()
         );
@@ -105,7 +49,7 @@ public class ModRecipeProvider extends RecipeProvider {
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.IRON_PICKAXE),
-                Ingredient.of(Items.IRON_BLOCK.asItem()),
+                Ingredient.of(Items.IRON_BLOCK),
                 ModItems.IRON_HAMMER.get()
         );
         hammerSmithingRecipe(
@@ -125,22 +69,22 @@ public class ModRecipeProvider extends RecipeProvider {
         );
         // Upgrades
         hammerUpgradeRecipe(
-                Ingredient.of(ModItems.WOODEN_HAMMER.get()),
+                Ingredient.of(ModItems.WOODEN_HAMMER),
                 Ingredient.of(Items.SMOOTH_STONE),
                 ModItems.STONE_HAMMER.get()
         );
         hammerUpgradeRecipe(
-                Ingredient.of(ModItems.STONE_HAMMER.get()),
+                Ingredient.of(ModItems.STONE_HAMMER),
                 Ingredient.of(Items.IRON_BLOCK),
                 ModItems.IRON_HAMMER.get()
         );
         hammerUpgradeRecipe(
-                Ingredient.of(ModItems.IRON_HAMMER.get()),
+                Ingredient.of(ModItems.IRON_HAMMER),
                 Ingredient.of(Items.GOLD_BLOCK),
                 ModItems.GOLDEN_HAMMER.get()
         );
         hammerUpgradeRecipe(
-                Ingredient.of(ModItems.GOLDEN_HAMMER.get()),
+                Ingredient.of(ModItems.GOLDEN_HAMMER),
                 Ingredient.of(Items.DIAMOND_BLOCK),
                 ModItems.DIAMOND_HAMMER.get()
         );
@@ -179,23 +123,23 @@ public class ModRecipeProvider extends RecipeProvider {
     private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem) {
         String unqualifiedItemName = itemNameWithoutNamespace(input);
         SimpleCookingRecipeBuilder.blasting(
-                        Ingredient.of(input),
-                        RecipeCategory.MISC,
-                        outputItem,
-                        0.1F,
-                        100
-                )
-                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
-                .save(output, unqualifiedItemName.concat("_blasting"));
+            Ingredient.of(input),
+            RecipeCategory.MISC,
+            outputItem,
+            0.1F,
+            100
+        )
+            .unlockedBy("has_".concat(unqualifiedItemName), has(input))
+            .save(output, unqualifiedItemName.concat("_blasting"));
         SimpleCookingRecipeBuilder.smelting(
-                        Ingredient.of(input),
-                        RecipeCategory.MISC,
-                        outputItem,
-                        0.1F,
-                        200
-                )
-                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
-                .save(output, unqualifiedItemName.concat("_smelting"));
+            Ingredient.of(input),
+            RecipeCategory.MISC,
+            outputItem,
+            0.1F,
+            200
+        )
+            .unlockedBy("has_".concat(unqualifiedItemName), has(input))
+            .save(output, unqualifiedItemName.concat("_smelting"));
     }
 
     public static class Runner extends RecipeProvider.Runner {
@@ -204,12 +148,12 @@ public class ModRecipeProvider extends RecipeProvider {
         }
 
         @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider provider, @NotNull RecipeOutput recipeOutput) {
             return new ModRecipeProvider(provider, recipeOutput);
         }
 
         @Override
-        public String getName() {
+        public @NotNull String getName() {
             return "My Recipes";
         }
     }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "simplest_hammers:hammer_smithing_template"
+            "items": "simplest_hammers:hammer_upgrade_smithing_template"
           }
         ]
       },

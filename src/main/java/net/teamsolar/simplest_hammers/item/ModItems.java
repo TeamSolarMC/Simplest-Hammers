@@ -19,6 +19,9 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(SimplestHammers.MODID);
 
+    private static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.BLUE;
+    private static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
+
     // Hammer durability will be 3x the durability of the vanilla pickaxe of the same tier.
     public static final DeferredItem<HammerItem> WOODEN_HAMMER = ITEMS.registerItem(
         "wooden_hammer", HammerItem::new, () -> HammerItem.hammerProperties(
@@ -75,28 +78,26 @@ public class ModItems {
         )
     );
 
-    public static final DeferredItem<SmithingTemplateItem> HAMMER_SMITHING_TEMPLATE = ITEMS.registerItem("hammer_smithing_template",
+    public static final DeferredItem<SmithingTemplateItem> HAMMER_SMITHING_TEMPLATE = ITEMS.registerItem("hammer_upgrade_smithing_template",
         ( properties) -> new SmithingTemplateItem(
-            Component.translatable("item.simplest_hammers.hammer_smithing_template.applies_to").withStyle(ChatFormatting.BLUE), // DESCRIPTION_FORMAT
-            Component.translatable("item.simplest_hammers.hammer_smithing_template.ingredients").withStyle(ChatFormatting.BLUE), // DESCRIPTION_FORMAT
+            Component.translatable("item.simplest_hammers.hammer_upgrade_smithing_template.applies_to").withStyle(DESCRIPTION_FORMAT), // DESCRIPTION_FORMAT
+            Component.translatable("item.simplest_hammers.hammer_upgrade_smithing_template.ingredients").withStyle(DESCRIPTION_FORMAT), // DESCRIPTION_FORMAT
             // Component.translatable("item.simplest_hammers.hammer_smithing_template.upgrade_description").withStyle(ChatFormatting.GRAY),
             // Upgrade descriptions were removed in 1.21.10
-            Component.translatable("item.simplest_hammers.hammer_smithing_template.base_slot_description"), // No formatting
-            Component.translatable("item.simplest_hammers.hammer_smithing_template.additions_slot_description"), // No formatting
+            Component.translatable("item.simplest_hammers.hammer_upgrade_smithing_template.base_slot_description"), // No formatting
+            Component.translatable("item.simplest_hammers.hammer_upgrade_smithing_template.additions_slot_description"), // No formatting
             // Base slot empty icons
             List.of(
                 ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe"),
                 ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_hammer")
             ),
+            // Additional slot empty icons
             List.of(
                 ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_block")
             ),
             properties
-            // Additional slot empty icons
         )
     );
-    private static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.BLUE;
-    private static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

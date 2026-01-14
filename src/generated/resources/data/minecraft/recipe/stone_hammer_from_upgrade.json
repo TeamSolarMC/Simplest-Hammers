@@ -5,5 +5,5 @@
   "result": {
     "id": "simplest_hammers:stone_hammer"
   },
-  "template": "simplest_hammers:hammer_smithing_template"
+  "template": "simplest_hammers:hammer_upgrade_smithing_template"
 }

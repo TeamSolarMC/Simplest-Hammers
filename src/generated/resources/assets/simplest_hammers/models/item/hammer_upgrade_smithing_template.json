@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "simplest_hammers:item/hammer_upgrade_smithing_template"
+  }
+}

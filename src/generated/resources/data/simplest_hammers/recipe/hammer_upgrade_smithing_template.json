@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": "minecraft:emerald",
-    "B": "simplest_hammers:hammer_smithing_template",
+    "B": "simplest_hammers:hammer_upgrade_smithing_template",
     "C": "minecraft:cobblestone"
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 2,
-    "id": "simplest_hammers:hammer_smithing_template"
+    "id": "simplest_hammers:hammer_upgrade_smithing_template"
   }
 }
