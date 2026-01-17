@@ -48,6 +48,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 ModItems.STONE_HAMMER.get()
         );
         hammerSmithingRecipe(
+                Ingredient.of(Items.COPPER_PICKAXE),
+                Ingredient.of(Items.COPPER_BLOCK),
+                ModItems.COPPER_HAMMER.get()
+        );
+        hammerSmithingRecipe(
                 Ingredient.of(Items.IRON_PICKAXE),
                 Ingredient.of(Items.IRON_BLOCK),
                 ModItems.IRON_HAMMER.get()
@@ -73,24 +78,34 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(Items.SMOOTH_STONE),
                 ModItems.STONE_HAMMER.get()
         );
+        // Alternative path: Stone -> Copper -> Iron / Stone -> Iron
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.STONE_HAMMER),
+                Ingredient.of(Items.COPPER_BLOCK),
+                ModItems.COPPER_HAMMER.get()
+        );
+        // *
+        hammerUpgradeRecipe(
+                Ingredient.of(ModItems.STONE_HAMMER, ModItems.COPPER_HAMMER),
                 Ingredient.of(Items.IRON_BLOCK),
                 ModItems.IRON_HAMMER.get()
         );
+        // Alternative path: Iron -> Gold -> Diamond / Iron -> Diamond
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.IRON_HAMMER),
                 Ingredient.of(Items.GOLD_BLOCK),
                 ModItems.GOLDEN_HAMMER.get()
         );
+        // *
         hammerUpgradeRecipe(
-                Ingredient.of(ModItems.GOLDEN_HAMMER),
+                Ingredient.of(ModItems.IRON_HAMMER, ModItems.GOLDEN_HAMMER),
                 Ingredient.of(Items.DIAMOND_BLOCK),
                 ModItems.DIAMOND_HAMMER.get()
         );
         netheriteSmithing(ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
         basicBlastingAndSmeltingRecipe(ModItems.IRON_HAMMER.get(), Items.IRON_NUGGET);
+        basicBlastingAndSmeltingRecipe(ModItems.COPPER_HAMMER.get(), Items.COPPER_NUGGET);
         basicBlastingAndSmeltingRecipe(ModItems.GOLDEN_HAMMER.get(), Items.GOLD_NUGGET);
     }
 

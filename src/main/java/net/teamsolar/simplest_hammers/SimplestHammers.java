@@ -52,6 +52,7 @@ public class SimplestHammers
         if(event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.WOODEN_HAMMER);
             event.accept(ModItems.STONE_HAMMER);
+            event.accept(ModItems.COPPER_HAMMER);
             event.accept(ModItems.IRON_HAMMER);
             event.accept(ModItems.GOLDEN_HAMMER);
             event.accept(ModItems.DIAMOND_HAMMER);
@@ -60,6 +61,7 @@ public class SimplestHammers
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.WOODEN_HAMMER);
             event.accept(ModItems.STONE_HAMMER);
+            event.accept(ModItems.COPPER_HAMMER);
             event.accept(ModItems.IRON_HAMMER);
             event.accept(ModItems.GOLDEN_HAMMER);
             event.accept(ModItems.DIAMOND_HAMMER);

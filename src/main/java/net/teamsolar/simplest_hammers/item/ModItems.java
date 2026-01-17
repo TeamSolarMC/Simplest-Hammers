@@ -41,6 +41,15 @@ public class ModItems {
             393
         )
     );
+    public static final DeferredItem<HammerItem> COPPER_HAMMER = ITEMS.registerItem("copper_hammer",
+            HammerItem::new, () -> HammerItem.hammerProperties(
+                    ToolMaterial.COPPER,
+                    new Item.Properties(),
+                    8.0F,
+                    0.6F - 4.0F,
+                    570
+            )
+    );
     public static final DeferredItem<HammerItem> IRON_HAMMER = ITEMS.registerItem("iron_hammer",
         HammerItem::new, () -> HammerItem.hammerProperties(
             ToolMaterial.IRON,

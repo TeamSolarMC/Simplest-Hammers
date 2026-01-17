@@ -3,6 +3,7 @@ package net.teamsolar.simplest_hammers.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.ModItems;
@@ -22,9 +23,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(
                         ModItems.WOODEN_HAMMER.get(),
                         ModItems.STONE_HAMMER.get(),
-                        ModItems.GOLDEN_HAMMER.get(),
+                        ModItems.COPPER_HAMMER.get(),
                         ModItems.IRON_HAMMER.get(),
                         ModItems.DIAMOND_HAMMER.get(),
+                        ModItems.GOLDEN_HAMMER.get(),
                         ModItems.NETHERITE_HAMMER.get());
         this.tag(ItemTags.DURABILITY_ENCHANTABLE).addTag(ModTags.Items.HAMMERS);
         this.tag(ItemTags.MINING_ENCHANTABLE).addTag(ModTags.Items.HAMMERS);
