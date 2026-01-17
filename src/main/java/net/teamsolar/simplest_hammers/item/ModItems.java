@@ -97,12 +97,15 @@ public class ModItems {
             Component.translatable("item.simplest_hammers.hammer_upgrade_smithing_template.additions_slot_description"), // No formatting
             // Base slot empty icons
             List.of(
-                ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe"),
-                ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_hammer")
+                // ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe"),
+                // 1.21.10: Slot is now called container/slot/shovel
+                // ?
+                ResourceLocation.withDefaultNamespace("container/slot/pickaxe"),
+                ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_hammer")
             ),
             // Additional slot empty icons
             List.of(
-                ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "item/empty_slot_block")
+                    ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_block")
             ),
             properties
         )
