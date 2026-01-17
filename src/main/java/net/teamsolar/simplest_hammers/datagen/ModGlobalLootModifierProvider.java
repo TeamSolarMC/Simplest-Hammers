@@ -15,6 +15,7 @@ import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.ModItems;
 import net.teamsolar.simplest_hammers.loot.ModLootModifier;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.regex.Pattern;
 
@@ -25,45 +26,36 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
-        add(
-                "hammer_smithing_template_modifier_in_toolsmith_chests",
-                toExistingLootPoolWithChance(
-                        "chests/village/village_toolsmith",
-                        0.75f,
-                        ModItems.HAMMER_SMITHING_TEMPLATE.get()
-                )
-        );
-        add(
-                "hammer_smithing_template_modifier_in_armorer_chests",
-                toExistingLootPoolWithChance(
-                        "chests/village/village_armorer",
-                        0.75f,
-                        ModItems.HAMMER_SMITHING_TEMPLATE.get()
-                )
-        );
-        add(
-                "hammer_smithing_template_modifier_in_weaponsmith_chests",
-                toExistingLootPoolWithChance(
-                        "chests/village/village_weaponsmith",
-                        0.75f,
-                        ModItems.HAMMER_SMITHING_TEMPLATE.get()
-                )
-        );
+        for(String location: List.of("toolsmith", "armorer", "weaponsmith")) {
+            add(
+                    "hammer_smithing_template_in_".concat(location).concat("_chests"),
+                    toExistingLootPoolWithChance(
+                            "chests/village/village_".concat(location),
+                            0.75f,
+                            ModItems.HAMMER_SMITHING_TEMPLATE.get()
+                    )
+            );
+        }
 
-        for(ResourceKey<LootTable> table: BuiltInLootTables.all()) {
+        var myLootTables = BuiltInLootTables
+            .all()
+            .stream().filter((table ) -> {
+                var key = table.location().getPath();
+                return key.startsWith("chests/village") && key.matches("chests/village/(.+_house)");
+            })
+            .sorted()
+            .toList();
+
+        for(ResourceKey<LootTable> table: myLootTables) {
             var key = table.location().getPath();
-            // SimplestExcavators.getLogger().info("Datagen checking chest %s".formatted(key));
-            if(key.startsWith("chests/village") && key.matches("chests/village/(.+_house)")) {
-                // SimplestExcavators.getLogger().info("Adding chest loot modifier to %s".formatted(key));
-                add(
-                        "hammer_smithing_template_in_".concat(matchHouseType(key)),
-                        toExistingLootPoolWithChance(
-                                table.location(),
-                                0.15f,
-                                ModItems.HAMMER_SMITHING_TEMPLATE.get()
-                        )
-                );
-            }
+            add(
+                "hammer_smithing_template_in_".concat(matchHouseType(key)),
+                toExistingLootPoolWithChance(
+                    table.location(),
+                    0.15f,
+                    ModItems.HAMMER_SMITHING_TEMPLATE.get()
+                )
+            );
         }
     }
 
@@ -74,8 +66,6 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
             throw new RuntimeException("No village chests matching %s".formatted(key));
         }
         return results.group(1);
-        // SimplestExcavators.getLogger().info("%d".formatted(results.groupCount()));
-        // SimplestExcavators.getLogger().info("%s".formatted(results.matches()));
     }
 
     private ModLootModifier toExistingLootPoolWithChance(ResourceLocation location, float chance, Item item) {

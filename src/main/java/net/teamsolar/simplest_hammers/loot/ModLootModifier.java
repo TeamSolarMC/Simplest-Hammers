@@ -11,7 +11,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 
-// When applied, adds 1 item (specified by the constructor) to village toolsmith chests with a count of 1.
+// When applied, adds 1 item (specified by the constructor) to the target list with a count of 1.
 public class ModLootModifier extends LootModifier {
     // See below for how the codec works.
     public static final MapCodec<ModLootModifier> CODEC = RecordCodecBuilder.mapCodec(inst ->
@@ -39,12 +39,6 @@ public class ModLootModifier extends LootModifier {
     // Parameters are the existing loot, and the loot context.
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
-        // ResourceLocation lootTableId = context.getQueriedLootTableId();
-        // SimplestHammers.getLogger().info("Loot table %s; %s".formatted(lootTableId.getNamespace(), lootTableId.getPath()));
-        /*if(lootTableId.getNamespace().equals("minecraft") && lootTableId.getPath().equals("chests/village/village_toolsmith")) {
-            // Add your items to generatedLoot here.
-            generatedLoot.add(new ItemStack(item, 1));
-        }*/
         generatedLoot.add(new ItemStack(item, 1));
         return generatedLoot;
     }
