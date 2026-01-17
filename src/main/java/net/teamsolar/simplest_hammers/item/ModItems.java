@@ -45,7 +45,7 @@ public class ModItems {
             HammerItem::new, () -> HammerItem.hammerProperties(
                     ToolMaterial.COPPER,
                     new Item.Properties(),
-                    8.0F,
+                    7.0F,
                     0.6F - 4.0F,
                     570
             )
