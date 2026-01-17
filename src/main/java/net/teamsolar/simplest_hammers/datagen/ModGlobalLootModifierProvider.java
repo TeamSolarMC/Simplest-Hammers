@@ -26,12 +26,14 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
+        // List.of("toolsmith", "armorer", "weaponsmith")
+
         for(String location: List.of("toolsmith", "armorer", "weaponsmith")) {
             add(
                     "hammer_smithing_template_in_".concat(location).concat("_chests"),
                     toExistingLootPoolWithChance(
                             "chests/village/village_".concat(location),
-                            0.75f,
+                            0.80f,
                             ModItems.HAMMER_SMITHING_TEMPLATE.get()
                     )
             );
@@ -52,7 +54,7 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                 "hammer_smithing_template_in_".concat(matchHouseType(key)),
                 toExistingLootPoolWithChance(
                     table.location(),
-                    0.15f,
+                    0.20f,
                     ModItems.HAMMER_SMITHING_TEMPLATE.get()
                 )
             );
