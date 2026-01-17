@@ -1,4 +1,5 @@
-// 1.21.10	2026-01-14T13:33:13.0432111	Model Definitions - simplest_hammers
+// 1.21.10	2026-01-16T19:21:34.7969432	Model Definitions - simplest_hammers
+b986b3a152a5b950bde007f573b43b59ae889ea3 assets/simplest_hammers/items/copper_hammer.json
 6910440275bce8730a6c0c2663ddc1a5e31cbfe8 assets/simplest_hammers/items/diamond_hammer.json
 e2e7ee71e0c6c8ed439727fd6756898e17636b8e assets/simplest_hammers/items/golden_hammer.json
 80922787803e8d04acd72ee5f7831ab393377061 assets/simplest_hammers/items/hammer_upgrade_smithing_template.json
@@ -6,6 +7,7 @@ dfcec3b92eaf5cc77f2e4dc3a94c7ef91cc8b6e8 assets/simplest_hammers/items/iron_hamm
 ed7be8879d2ac32cf074beb4508ad9b6773cec0f assets/simplest_hammers/items/netherite_hammer.json
 d7c12551f6d5e8414c79d15b70615dfc8a45786c assets/simplest_hammers/items/stone_hammer.json
 de61bb96e7219fa186ec6f656b6ca18b36b53bcc assets/simplest_hammers/items/wooden_hammer.json
+1029f2887beeda9baaa0d31ff0649baa716ab559 assets/simplest_hammers/models/item/copper_hammer.json
 1fcdd310b6e9fbfe59346d238e285d41a2c539a9 assets/simplest_hammers/models/item/diamond_hammer.json
 29fbaf7bd4b6da87216f9a30070ebc349f252f8c assets/simplest_hammers/models/item/golden_hammer.json
 bbb2b5b3f5f1cddbb6889c2177ff66df611806ca assets/simplest_hammers/models/item/hammer_upgrade_smithing_template.json

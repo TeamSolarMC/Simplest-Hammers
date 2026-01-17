@@ -1,7 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": "minecraft:diamond_block",
-  "base": "simplest_hammers:golden_hammer",
+  "base": [
+    "simplest_hammers:iron_hammer",
+    "simplest_hammers:golden_hammer"
+  ],
   "result": {
     "id": "simplest_hammers:diamond_hammer"
   },

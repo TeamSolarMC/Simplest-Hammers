@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:copper_block",
+  "base": "minecraft:copper_pickaxe",
+  "result": {
+    "id": "simplest_hammers:copper_hammer"
+  },
+  "template": "simplest_hammers:hammer_upgrade_smithing_template"
+}
