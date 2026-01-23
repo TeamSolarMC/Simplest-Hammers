@@ -14,7 +14,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     // ?
     /*private static TagKey<Block> create(String p_203847_) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(p_203847_));
+        return TagKey.create(Registries.BLOCK, new Identifier(p_203847_));
     }*/
 
     @Override

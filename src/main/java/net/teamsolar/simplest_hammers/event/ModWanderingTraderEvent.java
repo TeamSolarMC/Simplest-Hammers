@@ -16,7 +16,7 @@ public class ModWanderingTraderEvent {
 
     @SubscribeEvent
     public static void wanderingVillagerTrade(WandererTradesEvent event) {
-        event.getRareTrades().add((pTrader, pRandom) -> new MerchantOffer(
+        event.getRareTrades().add((level, pTrader, pRandom) -> new MerchantOffer(
                 new ItemCost(Items.EMERALD, 12),
                 new ItemStack(ModItems.HAMMER_SMITHING_TEMPLATE.get(), 1),
                 1, 2, 0.2f

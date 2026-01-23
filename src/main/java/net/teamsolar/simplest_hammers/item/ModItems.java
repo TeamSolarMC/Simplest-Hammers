@@ -2,7 +2,7 @@ package net.teamsolar.simplest_hammers.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.ToolMaterial;
@@ -97,15 +97,15 @@ public class ModItems {
             Component.translatable("item.simplest_hammers.hammer_upgrade_smithing_template.additions_slot_description"), // No formatting
             // Base slot empty icons
             List.of(
-                // ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe"),
+                // Identifier.withDefaultNamespace("item/empty_slot_pickaxe"),
                 // 1.21.10: Slot is now called container/slot/shovel
                 // ?
-                ResourceLocation.withDefaultNamespace("container/slot/pickaxe"),
-                ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_hammer")
+                Identifier.withDefaultNamespace("container/slot/pickaxe"),
+                Identifier.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_hammer")
             ),
             // Additional slot empty icons
             List.of(
-                    ResourceLocation.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_block")
+                    Identifier.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_block")
             ),
             properties
         )
