@@ -2,12 +2,12 @@ package net.teamsolar.simplest_hammers.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.teamsolar.simplest_hammers.item.ModItems;
 import org.jetbrains.annotations.NotNull;
@@ -23,10 +23,10 @@ public class ModRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
 
-        ShapedRecipeBuilder.shaped(
-                this.registries.lookupOrThrow(Registries.ITEM),
+        shaped(
                 RecipeCategory.MISC,
-                ModItems.HAMMER_SMITHING_TEMPLATE.toStack(2)
+                ModItems.HAMMER_SMITHING_TEMPLATE,
+                2
         )
                 .pattern("ABA")
                 .pattern("ACA")
@@ -138,23 +138,25 @@ public class ModRecipeProvider extends RecipeProvider {
     private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem) {
         String unqualifiedItemName = itemNameWithoutNamespace(input);
         SimpleCookingRecipeBuilder.blasting(
-            Ingredient.of(input),
-            RecipeCategory.MISC,
-            outputItem,
-            0.1F,
-            100
-        )
-            .unlockedBy("has_".concat(unqualifiedItemName), has(input))
-            .save(output, unqualifiedItemName.concat("_blasting"));
+                        Ingredient.of(input),
+                        RecipeCategory.MISC,
+                        CookingBookCategory.MISC,
+                        outputItem,
+                        0.1F,
+                        100
+                )
+                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
+                .save(output, unqualifiedItemName.concat("_blasting"));
         SimpleCookingRecipeBuilder.smelting(
-            Ingredient.of(input),
-            RecipeCategory.MISC,
-            outputItem,
-            0.1F,
-            200
-        )
-            .unlockedBy("has_".concat(unqualifiedItemName), has(input))
-            .save(output, unqualifiedItemName.concat("_smelting"));
+                        Ingredient.of(input),
+                        RecipeCategory.MISC,
+                        CookingBookCategory.MISC,
+                        outputItem,
+                        0.1F,
+                        200
+                )
+                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
+                .save(output, unqualifiedItemName.concat("_smelting"));
     }
 
     public static class Runner extends RecipeProvider.Runner {

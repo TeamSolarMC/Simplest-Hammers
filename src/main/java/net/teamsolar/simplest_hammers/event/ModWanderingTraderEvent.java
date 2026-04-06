@@ -9,9 +9,9 @@ import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.village.WandererTradesEvent;
+// import net.neoforged.neoforge.event.vill*/age.WandererTradesEvent;
 
-@EventBusSubscriber(modid = SimplestHammers.MODID)
+/*@EventBusSubscriber(modid = SimplestHammers.MODID)
 public class ModWanderingTraderEvent {
 
     @SubscribeEvent
@@ -22,4 +22,8 @@ public class ModWanderingTraderEvent {
                 1, 2, 0.2f
         ));
     }
-}
+}*/
+
+
+// Trades are now data driven
+// (See https://github.com/neoforged/.github/blob/main/primers/26.1/index.md)

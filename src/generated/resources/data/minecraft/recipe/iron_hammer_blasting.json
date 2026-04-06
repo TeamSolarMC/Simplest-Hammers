@@ -5,7 +5,6 @@
   "experience": 0.1,
   "ingredient": "simplest_hammers:iron_hammer",
   "result": {
-    "count": 1,
     "id": "minecraft:iron_nugget"
   }
 }

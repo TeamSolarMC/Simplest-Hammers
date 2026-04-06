@@ -1,4 +1,4 @@
-// 1.21.11	2026-01-23T11:08:15.1995879	Global Loot Modifiers : simplest_hammers
+// 26.1	2026-04-06T15:32:22.916946	Global Loot Modifiers : simplest_hammers
 fc1f407b345d90cf25b50e0b204914c78674249c data/neoforge/loot_modifiers/global_loot_modifiers.json
 e1a40a62d6d9a877e1ec8f28b19ccf3c5053d4b5 data/simplest_hammers/loot_modifiers/hammer_smithing_template_in_armorer_chests.json
 5abd58280462d9c38de6f1a945b132a5af1e7bed data/simplest_hammers/loot_modifiers/hammer_smithing_template_in_toolsmith_chests.json
