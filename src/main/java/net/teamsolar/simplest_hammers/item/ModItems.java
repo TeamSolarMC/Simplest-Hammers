@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.neoforged.bus.api.IEventBus;
@@ -108,7 +109,8 @@ public class ModItems {
                     Identifier.fromNamespaceAndPath(SimplestHammers.MODID, "container/slot/empty_slot_block")
             ),
             properties
-        )
+        ),
+        () -> new Item.Properties().rarity(Rarity.UNCOMMON)
     );
 
     public static void register(IEventBus eventBus) {
