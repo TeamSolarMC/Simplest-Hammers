@@ -49,7 +49,7 @@ public class ModRecipeProvider extends RecipeProvider {
         );
         hammerSmithingRecipe(
                 Ingredient.of(Items.COPPER_PICKAXE),
-                Ingredient.of(Items.COPPER_BLOCK),
+                Ingredient.of(Items.COPPER_BLOCK.weathering().unaffected()),
                 ModItems.COPPER_HAMMER.get()
         );
         hammerSmithingRecipe(
@@ -81,7 +81,7 @@ public class ModRecipeProvider extends RecipeProvider {
         // Alternative path: Stone -> Copper -> Iron / Stone -> Iron
         hammerUpgradeRecipe(
                 Ingredient.of(ModItems.STONE_HAMMER),
-                Ingredient.of(Items.COPPER_BLOCK),
+                Ingredient.of(Items.COPPER_BLOCK.weathering().unaffected()),
                 ModItems.COPPER_HAMMER.get()
         );
         // *

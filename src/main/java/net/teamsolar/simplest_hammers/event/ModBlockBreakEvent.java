@@ -1,5 +1,6 @@
 package net.teamsolar.simplest_hammers.event;
 
+import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
 import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.custom.HammerItem;
 
@@ -21,7 +22,7 @@ public class ModBlockBreakEvent {
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
 
     @SubscribeEvent
-    public static void onHammerUsage(BlockEvent.BreakEvent event) {
+    public static void onHammerUsage(BreakBlockEvent event) {
         Player player = event.getPlayer();
         ItemStack mainHandItem = player.getMainHandItem();
 

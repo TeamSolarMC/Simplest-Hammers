@@ -78,6 +78,7 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                                         LootItemRandomChanceCondition.randomChance(chance)
                                 ).build()
                 },
+                1000,
                 item
         );
     }

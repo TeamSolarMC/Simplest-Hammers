@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "minecraft:emerald",
     "B": "simplest_hammers:hammer_upgrade_smithing_template",

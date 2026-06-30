@@ -24,8 +24,8 @@ public class ModLootModifier extends LootModifier {
     private final Item item;
 
     // First constructor parameter is the list of conditions. The rest is our extra properties.
-    public ModLootModifier(LootItemCondition[] conditions, Item item) {
-        super(conditions);
+    public ModLootModifier(LootItemCondition[] conditions, int priority, Item item) {
+        super(conditions, priority);
         this.item = item;
     }
 
