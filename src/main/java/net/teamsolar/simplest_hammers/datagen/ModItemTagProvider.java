@@ -5,7 +5,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagAppender;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.ModItems;

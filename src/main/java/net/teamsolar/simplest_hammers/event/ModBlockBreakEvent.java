@@ -1,16 +1,14 @@
 package net.teamsolar.simplest_hammers.event;
 
-import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
-import net.teamsolar.simplest_hammers.SimplestHammers;
-import net.teamsolar.simplest_hammers.item.custom.HammerItem;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
+import net.teamsolar.simplest_hammers.SimplestHammers;
+import net.teamsolar.simplest_hammers.item.custom.HammerItem;
 
 import java.util.HashSet;
 import java.util.Set;

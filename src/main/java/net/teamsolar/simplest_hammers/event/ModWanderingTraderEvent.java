@@ -1,14 +1,5 @@
 package net.teamsolar.simplest_hammers.event;
 
-import net.teamsolar.simplest_hammers.SimplestHammers;
-import net.teamsolar.simplest_hammers.item.ModItems;
-
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.ItemCost;
-import net.minecraft.world.item.trading.MerchantOffer;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 // import net.neoforged.neoforge.event.vill*/age.WandererTradesEvent;
 
 /*@EventBusSubscriber(modid = SimplestHammers.MODID)
