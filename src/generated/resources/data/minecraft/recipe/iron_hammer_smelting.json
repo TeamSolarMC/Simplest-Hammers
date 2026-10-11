@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "experience": 0.1,
-  "ingredient": "simplest_hammers:iron_hammer",
-  "result": {
-    "id": "minecraft:iron_nugget"
-  }
-}

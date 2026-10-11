@@ -3,6 +3,7 @@ package net.teamsolar.simplest_hammers.loot;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -10,6 +11,8 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Optional;
 
 // When applied, adds 1 item (specified by the constructor) to the target list with a count of 1.
 public class ModLootModifier extends LootModifier {
@@ -23,11 +26,16 @@ public class ModLootModifier extends LootModifier {
     // Our extra properties.
     private final Item item;
 
+
     // First constructor parameter is the list of conditions. The rest is our extra properties.
-    public ModLootModifier(LootItemCondition[] conditions, int priority, Item item) {
-        super(conditions, priority);
+    @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
+    public ModLootModifier(Optional<Holder<LootItemCondition>> condition, int priority, Item item) {
+        super(condition, priority);
         this.item = item;
     }
+    /*public ModLootModifier(LootItemCondition[] conditions, int priority, Item item) {
+        super(conditions, priority);
+    }*/
 
     // Return our codec here.
     @Override

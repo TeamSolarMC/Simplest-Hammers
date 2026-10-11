@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "experience": 0.1,
-  "ingredient": "simplest_hammers:copper_hammer",
-  "result": {
-    "id": "minecraft:copper_nugget"
-  }
-}

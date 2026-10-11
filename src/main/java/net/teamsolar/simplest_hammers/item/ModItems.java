@@ -1,12 +1,16 @@
 package net.teamsolar.simplest_hammers.item;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.CookingFuel;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -32,6 +36,10 @@ public class ModItems {
             -3.4F,
             177
         )
+            .component(DataComponents.COOKING_FUEL, new CookingFuel(
+                new ResolvableInt.Constant(200),
+                new ResolvableFloat.Constant(1.0f)
+            ))
     );
     public static final DeferredItem<HammerItem> STONE_HAMMER = ITEMS.registerItem("stone_hammer",
         HammerItem::new, () -> HammerItem.hammerProperties(

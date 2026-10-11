@@ -1,23 +1,30 @@
 package net.teamsolar.simplest_hammers.datagen;
 
-import net.minecraft.core.HolderLookup;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.core.registries.MultiRegistryBootstrap;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.teamsolar.simplest_hammers.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.Set;
 
 public class ModRecipeProvider extends RecipeProvider {
-
-    public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        super(provider, recipeOutput);
+    protected ModRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     @Override
@@ -159,19 +166,20 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output, unqualifiedItemName.concat("_smelting"));
     }
 
-    public static class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
-            super(packOutput, provider);
-        }
+    public static MultiRegistryBootstrap create() {
+        return new MultiRegistryBootstrap() {
+            @Override
+            public @NotNull Set<ResourceKey<? extends Registry<?>>> requestedRegistries() {
+                return Set.of(Registries.RECIPE, Registries.ADVANCEMENT);
+            }
 
-        @Override
-        protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider provider, @NotNull RecipeOutput recipeOutput) {
-            return new ModRecipeProvider(provider, recipeOutput);
-        }
-
-        @Override
-        public @NotNull String getName() {
-            return "My Recipes";
-        }
+            @Override
+            public void run(@NotNull BootstrapGetter registries) {
+                new ModRecipeProvider(
+                        registries.get(Registries.RECIPE),
+                        registries.get(Registries.ADVANCEMENT)
+                ).buildRecipes();
+            }
+        };
     }
 }

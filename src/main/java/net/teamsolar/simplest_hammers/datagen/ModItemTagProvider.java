@@ -24,13 +24,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
         TagAppender<Item> builder = this.tag(ModTags.Items.HAMMERS);
         builder.addAll(
                 List.of(
-                        ModItems.WOODEN_HAMMER.getKey(),
-                        ModItems.STONE_HAMMER.getKey(),
-                        ModItems.COPPER_HAMMER.getKey(),
-                        ModItems.IRON_HAMMER.getKey(),
-                        ModItems.DIAMOND_HAMMER.getKey(),
-                        ModItems.GOLDEN_HAMMER.getKey(),
-                        ModItems.NETHERITE_HAMMER.getKey()
+                        ModItems.WOODEN_HAMMER.key(),
+                        ModItems.STONE_HAMMER.key(),
+                        ModItems.COPPER_HAMMER.key(),
+                        ModItems.IRON_HAMMER.key(),
+                        ModItems.DIAMOND_HAMMER.key(),
+                        ModItems.GOLDEN_HAMMER.key(),
+                        ModItems.NETHERITE_HAMMER.key()
                 )
         );
         this.tag(ItemTags.DURABILITY_ENCHANTABLE).addTag(ModTags.Items.HAMMERS);
