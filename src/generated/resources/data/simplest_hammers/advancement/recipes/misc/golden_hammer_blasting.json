@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hammer_template": {
+    "has_golden_hammer": {
       "conditions": {
         "items": [
           {
-            "items": "simplest_hammers:hammer_upgrade_smithing_template"
+            "items": "simplest_hammers:golden_hammer"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "minecraft:golden_hammer_from_pickaxe"
+        "recipes": "simplest_hammers:golden_hammer_blasting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hammer_template"
+      "has_golden_hammer"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:golden_hammer_from_pickaxe"
+      "simplest_hammers:golden_hammer_blasting"
     ]
   }
 }

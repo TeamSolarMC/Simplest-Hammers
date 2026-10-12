@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "minecraft:golden_hammer_blasting"
+        "recipes": "simplest_hammers:golden_hammer_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:golden_hammer_blasting"
+      "simplest_hammers:golden_hammer_smelting"
     ]
   }
 }

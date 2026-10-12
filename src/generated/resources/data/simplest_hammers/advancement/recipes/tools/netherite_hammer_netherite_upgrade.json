@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_hammer": {
+    "has_netherite_smithing_template": {
       "conditions": {
         "items": [
           {
-            "items": "simplest_hammers:iron_hammer"
+            "items": "minecraft:netherite_upgrade_smithing_template"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "minecraft:iron_hammer_smelting"
+        "recipes": "simplest_hammers:netherite_hammer_netherite_upgrade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_iron_hammer"
+      "has_netherite_smithing_template"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:iron_hammer_smelting"
+      "simplest_hammers:netherite_hammer_netherite_upgrade"
     ]
   }
 }

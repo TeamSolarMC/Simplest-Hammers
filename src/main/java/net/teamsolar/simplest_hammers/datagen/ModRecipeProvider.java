@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
@@ -29,8 +30,6 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
-
-        SimplestHammers.getLogger().info("MOD RECIPE PROVIDER is running");
         shaped(
                 RecipeCategory.MISC,
                 ModItems.HAMMER_SMITHING_TEMPLATE,
@@ -110,7 +109,18 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(Items.DIAMOND_BLOCK),
                 ModItems.DIAMOND_HAMMER.get()
         );
-        netheriteSmithing(ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
+        // Until netheriteSmithing saves to the correct namespace:
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.TOOLS,
+                        ModItems.NETHERITE_HAMMER.get()
+                )
+                .unlocks("has_netherite_smithing_template", has(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
+                .save(output, keyOf(getItemName(ModItems.NETHERITE_HAMMER).concat("_netherite_upgrade")));
+
+        // netheriteSmithing(ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
         basicBlastingAndSmeltingRecipe(ModItems.IRON_HAMMER.get(), Items.IRON_NUGGET);
         basicBlastingAndSmeltingRecipe(ModItems.COPPER_HAMMER.get(), Items.COPPER_NUGGET);
@@ -126,8 +136,7 @@ public class ModRecipeProvider extends RecipeProvider {
             outputItem
         )
             .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-            .save(output, getItemName(outputItem).concat("_from_pickaxe"));
-        SimplestHammers.getLogger().info("Saving recipe to path ".concat(getItemName(outputItem).concat("_from_pickaxe")));
+            .save(output, keyOf(getItemName(outputItem).concat("_from_pickaxe")));
     }
     private void hammerUpgradeRecipe(Ingredient base, Ingredient additional, Item outputItem) {
         SmithingTransformRecipeBuilder.smithing(
@@ -138,7 +147,7 @@ public class ModRecipeProvider extends RecipeProvider {
             outputItem
         )
             .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-            .save(output, getItemName(outputItem).concat("_from_upgrade"));
+            .save(output, keyOf(getItemName(outputItem).concat("_from_upgrade")));
     }
     private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem) {
         SimpleCookingRecipeBuilder.blasting(
@@ -150,7 +159,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         100
                 )
                 .unlockedBy("has_".concat(getItemName(input)), has(input))
-                .save(output, getItemName(input).concat("_blasting"));
+                .save(output, keyOf(getItemName(input).concat("_blasting")));
         SimpleCookingRecipeBuilder.smelting(
                         Ingredient.of(input),
                         RecipeCategory.MISC,
@@ -160,7 +169,14 @@ public class ModRecipeProvider extends RecipeProvider {
                         200
                 )
                 .unlockedBy("has_".concat(getItemName(input)), has(input))
-                .save(output, getItemName(input).concat("_smelting"));
+                .save(output, keyOf(getItemName(input).concat("_smelting")));
+    }
+
+    protected static ResourceKey<Recipe<?>> keyOf(String name) {
+        return ResourceKey.create(
+                Registries.RECIPE,
+                Identifier.fromNamespaceAndPath(SimplestHammers.MODID, name)
+        );
     }
 
     public static MultiRegistryBootstrap create() {

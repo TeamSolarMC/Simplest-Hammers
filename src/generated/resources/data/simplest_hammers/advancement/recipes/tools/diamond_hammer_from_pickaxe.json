@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_hammer": {
+    "has_hammer_template": {
       "conditions": {
         "items": [
           {
-            "items": "simplest_hammers:iron_hammer"
+            "items": "simplest_hammers:hammer_upgrade_smithing_template"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "minecraft:iron_hammer_blasting"
+        "recipes": "simplest_hammers:diamond_hammer_from_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_iron_hammer"
+      "has_hammer_template"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:iron_hammer_blasting"
+      "simplest_hammers:diamond_hammer_from_pickaxe"
     ]
   }
 }
