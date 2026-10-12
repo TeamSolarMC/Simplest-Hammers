@@ -1,4 +1,4 @@
-// 26.3	2026-10-11T23:56:18.2894252	Registries for Reloadable (simplest_hammers[0]): [simplest_hammers]
+// 26.3	2026-10-12T00:22:07.503751	Registries for Reloadable (simplest_hammers[0]): [simplest_hammers]
 36ea887cde1d4aff2bf7e46dfbb46308d7d51e19 data/simplest_hammers/advancement/recipes/misc/copper_hammer_blasting.json
 1d6c3f483c9e1e14b5b426e4c0f98d834ba0c9f5 data/simplest_hammers/advancement/recipes/misc/copper_hammer_smelting.json
 bc0968aff001787e1f8bc66ab9872e6ea0ea37de data/simplest_hammers/advancement/recipes/misc/golden_hammer_blasting.json
@@ -35,7 +35,7 @@ ddc5fd369f2f4c1f9ec27ebd4dc1c4032465a0b8 data/simplest_hammers/recipe/golden_ham
 04c4d93b0ba8e420f0e4f0dc1ea8caef13435c52 data/simplest_hammers/recipe/iron_hammer_from_upgrade.json
 67e1e314518f1ef4ef3ac7ba0d709f59d4a9bf09 data/simplest_hammers/recipe/iron_hammer_smelting.json
 e2d0e6645ef56de84c28c0820b415c105412f716 data/simplest_hammers/recipe/netherite_hammer_from_pickaxe.json
-56d7bb5b365a28f6d5d9ced03745af54e9d4471a data/simplest_hammers/recipe/netherite_hammer_netherite_upgrade.json
+2ea24604a46cc5ef2cdd0a73fe0969356104ee9c data/simplest_hammers/recipe/netherite_hammer_netherite_upgrade.json
 ca39ad66e408f75e18b122aa26cffed8e4f6adc7 data/simplest_hammers/recipe/stone_hammer_from_pickaxe.json
 c5b071637b50438d6ed0acc11ad1b62ec3dc8997 data/simplest_hammers/recipe/stone_hammer_from_upgrade.json
 5d106dcb1cbfeabdb4033782f28ee8aeb49688f9 data/simplest_hammers/recipe/wooden_hammer_from_pickaxe.json

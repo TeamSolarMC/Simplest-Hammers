@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": "minecraft:netherite_ingot",
-  "base": "minecraft:netherite_upgrade_smithing_template",
+  "base": "simplest_hammers:diamond_hammer",
   "result": {
     "id": "simplest_hammers:netherite_hammer"
   },
-  "template": "simplest_hammers:hammer_upgrade_smithing_template"
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

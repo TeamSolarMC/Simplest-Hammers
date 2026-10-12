@@ -111,14 +111,14 @@ public class ModRecipeProvider extends RecipeProvider {
         );
         // Until netheriteSmithing saves to the correct namespace:
         SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
-                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
+                        Ingredient.of(ModItems.DIAMOND_HAMMER),
                         Ingredient.of(Items.NETHERITE_INGOT),
                         RecipeCategory.TOOLS,
                         ModItems.NETHERITE_HAMMER.get()
                 )
                 .unlocks("has_netherite_smithing_template", has(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
-                .save(output, keyOf(getItemName(ModItems.NETHERITE_HAMMER).concat("_netherite_upgrade")));
+                .save(output, resourceKeyForRecipe(getItemName(ModItems.NETHERITE_HAMMER).concat("_netherite_upgrade")));
 
         // netheriteSmithing(ModItems.DIAMOND_HAMMER.get(), RecipeCategory.MISC, ModItems.NETHERITE_HAMMER.get());
 
@@ -136,7 +136,7 @@ public class ModRecipeProvider extends RecipeProvider {
             outputItem
         )
             .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-            .save(output, keyOf(getItemName(outputItem).concat("_from_pickaxe")));
+            .save(output, resourceKeyForRecipe(getItemName(outputItem).concat("_from_pickaxe")));
     }
     private void hammerUpgradeRecipe(Ingredient base, Ingredient additional, Item outputItem) {
         SmithingTransformRecipeBuilder.smithing(
@@ -147,7 +147,7 @@ public class ModRecipeProvider extends RecipeProvider {
             outputItem
         )
             .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-            .save(output, keyOf(getItemName(outputItem).concat("_from_upgrade")));
+            .save(output, resourceKeyForRecipe(getItemName(outputItem).concat("_from_upgrade")));
     }
     private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem) {
         SimpleCookingRecipeBuilder.blasting(
@@ -159,7 +159,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         100
                 )
                 .unlockedBy("has_".concat(getItemName(input)), has(input))
-                .save(output, keyOf(getItemName(input).concat("_blasting")));
+                .save(output, resourceKeyForRecipe(getItemName(input).concat("_blasting")));
         SimpleCookingRecipeBuilder.smelting(
                         Ingredient.of(input),
                         RecipeCategory.MISC,
@@ -169,10 +169,10 @@ public class ModRecipeProvider extends RecipeProvider {
                         200
                 )
                 .unlockedBy("has_".concat(getItemName(input)), has(input))
-                .save(output, keyOf(getItemName(input).concat("_smelting")));
+                .save(output, resourceKeyForRecipe(getItemName(input).concat("_smelting")));
     }
 
-    protected static ResourceKey<Recipe<?>> keyOf(String name) {
+    protected static ResourceKey<Recipe<?>> resourceKeyForRecipe(String name) {
         return ResourceKey.create(
                 Registries.RECIPE,
                 Identifier.fromNamespaceAndPath(SimplestHammers.MODID, name)
