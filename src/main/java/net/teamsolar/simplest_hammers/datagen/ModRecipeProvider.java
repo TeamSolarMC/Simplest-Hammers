@@ -2,7 +2,6 @@ package net.teamsolar.simplest_hammers.datagen;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.MultiRegistryBootstrap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -17,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.teamsolar.simplest_hammers.SimplestHammers;
 import net.teamsolar.simplest_hammers.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,6 +30,7 @@ public class ModRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
 
+        SimplestHammers.getLogger().info("MOD RECIPE PROVIDER is running");
         shaped(
                 RecipeCategory.MISC,
                 ModItems.HAMMER_SMITHING_TEMPLATE,
@@ -116,10 +117,6 @@ public class ModRecipeProvider extends RecipeProvider {
         basicBlastingAndSmeltingRecipe(ModItems.GOLDEN_HAMMER.get(), Items.GOLD_NUGGET);
     }
 
-    private String itemNameWithoutNamespace(Item item) {
-        return BuiltInRegistries.ITEM.getKey(item).getPath();
-    }
-
     private void hammerSmithingRecipe(Ingredient base, Ingredient additional, Item outputItem) {
         SmithingTransformRecipeBuilder.smithing(
             Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE.get()), // ModItems.HAMMER_SMITHING_TEMPLATE.get(),
@@ -129,7 +126,8 @@ public class ModRecipeProvider extends RecipeProvider {
             outputItem
         )
             .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-            .save(output, itemNameWithoutNamespace(outputItem).concat("_from_pickaxe"));
+            .save(output, getItemName(outputItem).concat("_from_pickaxe"));
+        SimplestHammers.getLogger().info("Saving recipe to path ".concat(getItemName(outputItem).concat("_from_pickaxe")));
     }
     private void hammerUpgradeRecipe(Ingredient base, Ingredient additional, Item outputItem) {
         SmithingTransformRecipeBuilder.smithing(
@@ -140,10 +138,9 @@ public class ModRecipeProvider extends RecipeProvider {
             outputItem
         )
             .unlocks("has_hammer_template", has(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
-            .save(output, itemNameWithoutNamespace(outputItem).concat("_from_upgrade"));
+            .save(output, getItemName(outputItem).concat("_from_upgrade"));
     }
     private void basicBlastingAndSmeltingRecipe(Item input, Item outputItem) {
-        String unqualifiedItemName = itemNameWithoutNamespace(input);
         SimpleCookingRecipeBuilder.blasting(
                         Ingredient.of(input),
                         RecipeCategory.MISC,
@@ -152,8 +149,8 @@ public class ModRecipeProvider extends RecipeProvider {
                         0.1F,
                         100
                 )
-                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
-                .save(output, unqualifiedItemName.concat("_blasting"));
+                .unlockedBy("has_".concat(getItemName(input)), has(input))
+                .save(output, getItemName(input).concat("_blasting"));
         SimpleCookingRecipeBuilder.smelting(
                         Ingredient.of(input),
                         RecipeCategory.MISC,
@@ -162,8 +159,8 @@ public class ModRecipeProvider extends RecipeProvider {
                         0.1F,
                         200
                 )
-                .unlockedBy("has_".concat(unqualifiedItemName), has(input))
-                .save(output, unqualifiedItemName.concat("_smelting"));
+                .unlockedBy("has_".concat(getItemName(input)), has(input))
+                .save(output, getItemName(input).concat("_smelting"));
     }
 
     public static MultiRegistryBootstrap create() {
