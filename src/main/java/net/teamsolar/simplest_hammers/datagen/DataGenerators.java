@@ -19,16 +19,16 @@ public class DataGenerators {
         event.createProvider(ModBlockTagGenerator::new);
         event.createProvider(ModItemTagProvider::new);
 
-        /*event.getDefaultPackGenerator().createReloadableRegistryObjects(
+        event.getDefaultPackGenerator().createReloadableRegistryObjects(
             new RegistrySetBuilder()
                     .add(ModRecipeProvider.create())
-        );*/
+        );
         event.createProvider(ModGlobalLootModifierProvider::new);
     }
     @SubscribeEvent
     public static void gatherRegistries(GatherDataRegistryEntriesEvent event) {
-        //event.gatherFor(SimplestHammers.MODID)
-        //    .add(ModRecipeProvider.create());
+        event.gatherFor(SimplestHammers.MODID, "minecraft")
+                .add(ModRecipeProvider.create());
 
         // event.add(ModRecipeProvider.create());
     }
